@@ -1,0 +1,186 @@
+﻿body 
+{
+    font-family:Arial Baltic;
+    background-color:fff;
+}
+
+#imap
+{
+   display: block;
+        margin: 0 auto;
+		background:url(/Resources/Images/world_map_all.png) no-repeat;
+		 width:1000px;
+		 height:516px;
+		 position:relative;
+}
+
+
+/* IE pre IE6 */
+* html #imap a#us {
+  height:516px;
+ }
+
+#imap a#us 
+{
+    display:block;
+    width:0px;
+    height:0px;
+    padding-top:0px;
+	overflow:hidden;
+    background:transparent url(/Resources/Images/world_map_all.png) 1000 516 no-repeat)
+    position:absolute;
+    left:0;
+    top:0;
+}
+
+#imap a#us:hover 
+{
+    background-position:0 0;
+   
+}
+
+#imap dd 
+{
+    position:absolute;
+    padding:0;
+    margin:0;
+}
+
+#imap a
+{
+    display:block;
+    text-decoration:none;
+    
+    /*border:solid 1px black;*/
+}
+
+/*Belgium*/
+#imap #imgblg 
+{
+    left:470px;
+    top:90px;
+  
+}
+#imap a#blg:hover 
+{
+    background:url(/Resources/Images/map_img/blg.gif) -470px -90px;
+}
+#imap a#blg
+{
+    width:12px;
+    height:24px;
+}
+/*Turkey*/
+#imap #imgtrk 
+{
+    left:544px;
+    top:138px;
+  
+}
+#imap a#trk:hover 
+{
+    background:url(/Resources/Images/map_img/trk.gif) -544px -138px;
+}
+#imap a#trk
+{
+    width:68px;
+    height:28px;
+}
+
+/*Kazakhstan*/
+#imap #imgkzh 
+{
+    left:600px;
+    top:87px;
+  
+}
+#imap a#kzh:hover 
+{
+    background:url(/Resources/Images/map_img/kzh.gif) -600px -87px;
+}
+#imap a#kzh
+{
+    width:134px;
+    height:58px;
+}
+
+/*Uzbekistan*/
+#imap #imguzb 
+{
+    left:628px;
+    top:123px;
+  
+}
+#imap a#uzb:hover 
+{
+    background:url(/Resources/Images/map_img/uzb.gif) -628px -123px;
+}
+#imap a#uzb
+{
+    width:84px;
+    height:38px;
+	z-index:26;
+}
+
+/*Turkmenistan*/
+#imap #imgtrkm 
+{
+    left:602px;
+    top:130px;
+  
+}
+#imap a#trkm:hover 
+{
+    background:url(/Resources/Images/map_img/trkm.gif) -602px -130px;
+}
+#imap a#trkm
+{
+    width:82px;
+    height:40px;
+}
+
+/*Tajikistan*/
+#imap #imgtjk 
+{
+    left:672px;
+    top:138px;
+  
+}
+#imap a#tjk:hover 
+{
+    background:url(/Resources/Images/map_img/tjk.gif) -672px -138px;
+}
+#imap a#tjk
+{
+    width:33px;
+    height:23px;
+	z-index:20;
+}
+
+/*Kyrgyzstan*/
+#imap #imgkyr 
+{
+    left:690px;
+    top:130px;
+  
+}
+#imap a#kyr:hover 
+{
+    background:url(/Resources/Images/map_img/kyr.gif) -690px -130px;
+}
+#imap a#kyr
+{
+    width:68px;
+    height:43px;
+	z-index:30;
+}
+
+    .popupcontent{
+    position: absolute;
+    visibility: hidden;
+    overflow: hidden;
+    border:1px solid #CCC;
+    background-color:#F9F9F9;
+    border:1px solid #333;
+    padding:5px;
+    }

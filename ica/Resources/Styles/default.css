@@ -1,0 +1,356 @@
+/*
+File: default.css - main style sheet for ICA's site
+Created: 01.05.2011
+Revised: 19.05.2011
+Author: Adianam DTH
+
+Client colors:          38348B   - blue
+                        DF002C   - red
+                        2BB433   - green
+                        F3B900   - yellow
+*/
+@import "reset.css";
+
+.colorRed    {color:#df002c;}
+.colorGreen  {color:#2bb433;}
+.colorBlue   {color:#38348b;}
+.colorYellow {color:#f3b900;}
+
+html {height:100%;background-color:#fff;}
+body {
+  color:#000;min-height:100%;
+  text-align:center;line-height:140%;margin-bottom:20px;}
+
+/* ------------------------------------------------ Font-FAMILY --- */
+body {font-family:'Lucida Sans Unicode',Verdana,Arial,Sans-Serif;}
+h1, h2, h3, h4, h5, h6, .oval, #footer {font-family:'Trebuchet MS',Helvetica,Sans-Serif;}
+#mainMenu, input, textarea, select, .brd_div_form {font-family:Helvetica,Sans-Serif;}
+.listTable {font-family:Arial,Sans-Serif;}
+.alignJustify { text-align: justify; }
+
+/* ----------------------------------------------- Regular Links ---*/
+a {padding:0 0.1em;text-decoration:none;font-weight:bold;color:#38348b;}
+a:visited {color:#38348b;}
+a:hover {text-decoration:underline;color:#38348b;}
+
+.map_info{color:#38348b; font-size:12px;}
+.formLbl{font-family:'Trebuchet MS',Helvetica,Sans-Serif; color:#38348b; font-size:16px;}
+
+/* -------------------------------------------------- Oval Links ---*/
+.oval {width:100%;overflow:hidden;}
+.ovalGray, .ovalYellow, .ovalGreen,
+.ovalGray span, .ovalYellow span, .ovalGreen span, em.view, em.cv {
+  background:transparent url("/Resources/Images/sprite_ver_9.png") 0 0 no-repeat;
+  padding:0;color:#000;}
+.ovalGray, .ovalYellow, .ovalGreen {
+  display:block;float:left;line-height:30px;
+  text-decoration:none;cursor:pointer;}
+.ovalGray:hover,.ovalYellow:hover,.ovalGreen:hover {text-decoration:none;}
+.ovalGray span, .ovalYellow span, .ovalGreen span {
+  display:block;float:left;padding-left:12px;margin-right:12px;}
+em.view, em.cv {display:inline;padding-left:20px;font-style:normal;}
+.ovalGray       {background-position:  100% -240px;}
+.ovalGray span  {background-position:-320px -240px;}
+.ovalYellow     {background-position:  100% -180px;}
+.ovalYellow span{background-position:-320px -180px;}
+.ovalGreen      {background-position:  100% -210px;}
+.ovalGreen span {background-position:-320px -210px;}
+em.view {background-position:0 -244px;}
+em.cv   {background-position:0 -184px;}
+
+/* --------------------------------------------------- Headings --- */
+h1, h2, h3, h4, h5, h6 {margin:1em 0 0.5em 0;line-height:1.2;font-weight:normal;}
+h1 {font-size:250%;}
+h2 {font-size:180%;}
+h3 {font-size:140%;}
+h4 {font-size:120%;}
+h5 {font-size:110%;}
+
+/* ------------------------------------- paragraph, small, etc. --- */
+p {margin-bottom:0.5em;line-height:1.5;font-weight:normal;font-size:100%;}
+small {font-size:85%;}
+address {font-style:normal;}
+
+/* -------------------------------------- align, spacing, other --- */
+.spc00 {letter-spacing:0;}
+.spc06 {letter-spacing:.6em;}
+.spc10 {letter-spacing:1em;}
+
+.alignLeft   {text-align:left;}
+.alignRight  {text-align:right;}
+.alignCenter {text-align:center;}
+
+.f10 {font-size:100%;}
+.bld {font-weight:bold;}
+.noMrgn   {margin:0;}
+.autoMrgn {margin:0 auto;}
+
+.rightPdng10 {padding-right:10px;}
+.leftPdng10  {padding-left:10px;}
+
+.rightMrgn60 {margin-right:60px;}
+.leftMrgn60  {margin-left:60px;}
+
+.floatLeft,  .imgFloatLeft  {float:left;}
+.floatRight, .imgFloatRight {float:right;}
+.imgFloatRight {margin-left:15px;}
+.imgFloatLeft  {margin-right:15px;}
+
+.homeTxt {padding:0 60px;}
+
+/* ======================================= DIVISION's structure === */
+#header, #pageContent, #footer {
+  position:relative;width:1000px;margin:0 auto;
+  text-align:left;clear:both;}
+#header {
+  background:transparent url("/Resources/Images/banner9.png") 100% -30px no-repeat;
+  height:auto;}
+#pageContent {padding:5px 0;background-color:#fff;}
+#footer {padding:0;margin-bottom:2em;border-top:3px #38348B solid;}
+#leftColumn p {margin:1em 3em 1em 1em;}
+
+#leftColumn2 p {margin:1em 3em 1em 0em;}
+/* -------------------------------------------------------- Logo ---*/
+#logo, #logo h2#dth a, h2#dth, h2#dth em {width:275px;height:220px;}
+#logo {overflow:hidden;}
+#logo h2#dth a {display:block;margin:0;padding:0;text-decoration:none;}
+h2#dth, h2#dth em {
+  background:transparent url("/Resources/Images/logo9.png") 0 0 no-repeat;
+  margin:0;color:#000;font-size:2em;}
+h2#dth a em {
+  display:block;position:absolute;
+  top:0;left:0;z-index:1;height:40px;}
+h2#dth em.blk {color:#fff;font-size:0px;}
+
+
+.leftColumn {float: left; padding: 0px 5px 10px 0;}
+.rightColumn { float: left; padding: 64px 0 0 30px; width: 670px; }
+
+/* -------------------------------------------------- MAIN menu --- */
+#mainMenu {overflow:hidden;margin:0;padding:0;}
+#mainMenu ul {
+  border-top:3px #38348B solid;height:70px;
+  margin:0;padding:0 0 0 50px;list-style-type:none;
+  font-size:130%;line-height:70px;text-transform:uppercase;}
+#mainMenu li {float:left;margin:0;padding:0;}
+#mainMenu li.current {background-color:#fff;}
+#mainMenu a {
+  display:block;line-height:70px;
+  margin:0;padding:0 80px;text-decoration:none;
+  color:#df002c;font-weight:normal;
+  background:#fff url("/Resources/Images/sprite_ver_9.png") 50% 0 no-repeat;
+  background-position:50% -50px;}
+#mainMenu a:hover,
+#mainMenu a.current {color:#38348b;background-position:50% 0;}
+
+/* ----------------------------------------------------- Footer --- */
+#footer h3 {margin:0.5em 0;padding:0;}
+#footer address, #footer p, #footer ul {
+  font-size:95%; color:#333;font-weight:normal; padding:0;line-height:1.2;}
+#footer ul {
+  margin:0 0 0 20px;padding:0;list-style-type:disc;color:#df002c;}
+#footer li {margin:0;padding:0;}
+#footer a {color:#38348b;font-weight:normal;}
+#footer a.color {color:#38348b;font-weight:bold;}
+#footer .column {margin:0;float:left;}
+#footer .p1, #footer .p2, #footer .p3 {
+  padding:0;width:60px;height:60px;
+  background:transparent url("/Resources/Images/sprite_ver_9.png") 0 0 no-repeat;}
+#footer .p4 {
+padding:0;width:60px;height:60px;
+background:transparent url("/Resources/Images/white_space.png") 0 0 no-repeat;}
+#footer .p1 {background-position:100% 0;}
+#footer .p2 {background-position:100% -60px;}
+#footer .p3 {background-position:100% -120px;}
+#footer .p4 {background-position:100% -120px;}
+p.design {margin-top:20px;}
+
+
+/* --------------------------------------------------- HOME Page ---*/
+.box p, .boxGreen p, .boxRed p {font-size:100%;}
+.box h4, .boxGreen h4, .boxRed h4 {
+  margin:0;padding:0 0 0 20px;line-height:70px;font-size:130%;color:#000;}
+.box, .boxGreen, .boxRed {
+  background:transparent url("/Resources/Images/sprite_ver_9.png") 0 0 no-repeat;
+  width:320px;height:auto;margin:0;padding:0;}
+.innerBox {
+  background:transparent url("/Resources/Images/sprite_ver_9.png") 0 0 no-repeat;
+  padding:0 20px 20px 20px;}
+.boxGreen {background-position:100% -270px;}
+.boxRed   {background-position:0 -270px;}
+.boxGreen .innerBox {background-position:100% 100%;}
+.boxRed   .innerBox {background-position:0 100%;}
+
+/* ---------------------------------------------- Navigation Bar ---*/
+.navigationBar {margin:1em 0;text-align:right;}
+.navigationBar a {margin:10px;}
+a.first, a.prev, a.next, a.last {
+  display:inline;padding-left:20px;
+  background:transparent url("/Resources/Images/16x16_first.png") left 50% no-repeat;}
+a.next, a.last {
+  background:transparent url("/Resources/Images/16x16_next.png") right 50% no-repeat;}
+a.prev {background-image:url("/Resources/Images/16x16_prev.png")}
+a.next {background-image:url("/Resources/Images/16x16_next.png")}
+a.last {background-image:url("/Resources/Images/16x16_last.png")}
+a.next, a.last {padding-left:0;padding-right:20px;}
+a.currentPage {font-size:130%;color:#333;}
+
+/* ======================================================= FORMS ===*/
+form {padding:0 0 20px;font-size:100%;}
+form p {margin:0;padding:0 0 0;font-size:75%;}
+fieldset {padding:10px;}
+fieldset.noPdng {padding:0;}
+
+.title{ margin:5px 0 0 80px; font-weight:normal; font-size:22px; color:#333;}
+input, textarea, .brd_div_form {
+  margin:5px 0;border:1px solid #ccc; background:#f6f6f6; 
+  font-weight:normal;font-size:11px;color:#5F5F5F; width: 120px;}
+
+  select{margin:5px 0;border:1px solid #ccc; background:#f6f6f6; 
+  font-weight:normal;font-size:11px;color:#5F5F5F; width: auto;}
+input, textarea {padding:5px;}
+textarea {overflow:auto;}
+input.chk {
+  margin:0 10px 0 0;padding:0px;border:0;background-color:transparent;}
+label.tbl {
+font-family:'Trebuchet MS',Helvetica,Sans-Serif; font-size:16px;
+display:block;float:left;clear:left;line-height:1.3em;
+margin:0;padding:.6em 15px 0 0;text-align:right; color: #333;
+  }
+
+form.lgn {height:35px;padding:0;}
+label.lgn, li.lgn {text-align:right;margin:0;padding:0 8px 0 15px; color:#333;}
+input.lgn {font-size:100%;margin:0;padding:5px;}
+/* -------------------------------------------- Buttons in Forms ---*/
+div.btnStart, div.btnEnd, div.btnStart input {
+  float:left;height:30px;cursor:pointer;padding:0 12px;
+  background:transparent url("/Resources/Images/sprite_ver_9.png") 0 0 no-repeat;
+  margin-top:0;margin-bottom:0;}
+div.btnStart {background-position:-320px -240px;padding-right:0;float:none;}
+div.btnEnd   {background-position:100% -240px;padding-left:0;}
+div.btnStart input {
+  padding:0;border:0 none;white-space:nowrap;
+  font-size:100%;font-style:normal;}
+div.btnStart input.sbmt,
+div.btnStart input.slct,
+div.btnStart input.login{
+  padding-left:16px;color:#000;}
+div.btnStart input.sbmt  {background-position:0 -210px;}
+div.btnStart input.slct  {background-position:0 -150px;}
+div.btnStart input.login {background-position:0 -120px;}
+
+/* ------------------------------------------------------ Tables ---*/
+.listTable {margin:5px;font-size:80%;width:990px;border:0px;}
+.listTable th, .listTable td, .listTable .headerRow td {
+    color:#666;padding:3px;vertical-align:top;}
+.listTable td {
+  padding:5px;
+  border-bottom:1px #ddd solid;border-top: 1px #eee solid;}
+.listTable th {
+  padding:3px 5px;background-color:#ddd;color:#333;
+  border:1px #fff solid;font-weight:bold;}
+
+.color {color:#38348b;}
+.bold {font-weight: bold;}
+.red {color:red;}
+/*----------------------*/
+
+#dhtmlgoodies_tooltip{
+		background-color:#ff6464;
+		border:3px solid #face41;
+		position:absolute;
+		display:none;
+		z-index:20000;
+		padding:2px;
+		font-size:0.9em;
+		-moz-border-radius:6px;	/* Rounded edges in Firefox */
+		font-family: "Trebuchet MS", "Lucida Sans Unicode", Arial, sans-serif;
+		
+	}
+	#dhtmlgoodies_tooltipShadow{
+		position:absolute;
+		background-color:#555;
+		display:none;
+		z-index:10000;
+		opacity:0.7;
+		filter:alpha(opacity=70);
+		-khtml-opacity: 0.7;
+		-moz-opacity: 0.7;
+		-moz-border-radius:6px;	/* Rounded edges in Firefox */
+	}
+
+
+	/*==============*/
+
+#tblSearchCriteria { background: #FFFFFF; margin-bottom: 10px; width:auto; }
+#tblSearchCriteria td { border-bottom: 1px solid #F5F5F5; padding: 1px; }
+#tblSearchCriteria td.l { border-bottom: 1px solid #FFFFFF; background: #F5F5F5; }
+
+form#form_register fieldset#first label {
+    display: block;
+    float: left;
+    margin: 0 296px 0 0;
+}
+
+#references_focus label.selector {
+    color: #11589F;
+    font-size: 13px;
+}
+
+.grayBkgr{background-color:#dddddd}
+.blue11{color:#38348B; font-size:12px;}
+
+#register {
+  background:#fff;
+ border-bottom:2px #666 solid;
+ color: #000;}
+
+ form#form_register {
+    background: url("/Resources/Images/shapeForm.gif") no-repeat scroll left top transparent;
+    height: 460px;
+    margin: 0;
+    padding: 14px 20px;
+    width: 898px;
+}
+
+/* -- */
+div#vacancy_details{
+        background-color:#E7E8E9;
+}
+
+/* ------------------------------------------------- QUICK menu --- */
+ul#quickMenu {
+  overflow:hidden;float:right;height:auto;margin:0px 0px 5px 0px;padding:0;
+  list-style-type:none;font-size:100%;font-weight:normal;line-height:normal;}
+#quickMenu li {
+  float:left;margin:0 0 0 2px;padding:0;}
+#quickMenu li a {line-height: 14px;}
+#quickMenu li a:hover {text-decoration:none}
+ul#quickMenu li a.icapublic-link {background:url('/resources/images/earth-h14.png') no-repeat 1px 0;display:inline-block;height:14px;vertical-align:bottom;padding-left:18px}
+ul#quickMenu li a.twitter-link {background:url('/resources/images/twitter-h15.png') no-repeat 2px 0;display:inline-block;height:15px;width:20px;vertical-align:bottom;}
+ul#quickMenu li a.linkedin-link {background:url('/resources/images/linkedin-h14.png') no-repeat 4px 0;display:inline-block;height:14px;width:20px;vertical-align:bottom;}
+a.public, a.sitemap, a.logout {
+  background:transparent url("/Resources/images/icon_public.png") 0 50% no-repeat;
+  display:inline;margin:0;padding:0 0 0 30px;}
+a.sitemap {background-image:url("/Resources/images/icon_sitemap.png");}
+a.logout  {background-image:url("/Resources/images/icon_logout.png");}
+
+
+
+
+
+/* added from the old style.css: */
+
+#htmlPopupContainer { position: absolute; width: 100%; height: 100%; left: 0; top: 0; background: url('/Resources/Images/bg-trsp-dark-grey.gif'); }
+
+#htmlPopup { position: absolute; width: 950px; height: auto; left: 50%; margin: 30px auto 0px -475px; border:1px solid #FFFFFF; 
+             background: #FFFFFF; text-align: left; font-size: 11px; }
+#htmlPopup #htmlPopupTitle { background: url('/Resources/Images/bg-light-blue.gif'); color: #565e6b; font-weight: bold; }
+#htmlPopup #htmlPopupTitle #htmlPopupBtnHide { display: block; position: relative; padding: 3px; float: right; 
+                                               background: #FF5555 url('/Resources/Images/bg-light-red.gif');
+                                               text-decoration: none; color: #FFFFFF; font-weight: bold; }
+#htmlPopup #htmlPopupTitle #htmlPopupBtnHide:hover { background: #FF5555; }
+#htmlPopup #htmlPopupTitle #htmPopupTitleContent { display: block; float: none; padding: 3px; }
+#htmlPopup #htmlPopupContent { padding: 0px 0px 5px 0px; }
+
+/* END OF - added from the old style.css */

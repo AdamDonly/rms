@@ -1,0 +1,393 @@
+/*
+File: default.css - main style sheet for ICAnet site
+Created: 01.05.2011
+Revised: 12.03.2011
+Author: DTH
+*/
+@import "reset-experts.css";
+
+html {height:105%;background-color:#fff;}
+body { padding: 0px; color: #000; margin: 0px; 
+       text-align: left; font: 12px Verdana, Sans-Serif;}
+
+/* ------------------------------------------------ Font-FAMILY --- */
+body {font-family:Helvetica,Verdana,Arial,Sans-Serif;}
+
+input, textarea, select, .brd_div_form {font-family:Helvetica,Sans-Serif;}
+.listTable {font-family:Arial,Sans-Serif;}
+
+/* ----------------------------------------------- Regular Links ---*/
+a {padding:0;text-decoration:none;color:#38348b; }
+a:hover, p:hover a:visited {text-decoration:underline;color:#df002c;list-style-type:color:#df002c;margin-top:0px;}
+
+.tbLink { display: normal; text-decoration: none; padding: 3px; color: #555555; }
+.tbLink a {padding:0 0.1em;text-decoration:none;color:#000;}
+.tbLink a:hover, p:hover a:visited {text-decoration:underline;color:#df002c;list-style-type:color:#df002c;margin-top:10px;}
+
+.quickLinks { display: block; text-decoration: none; padding: 3px; color: #1b1b1b; font-size:105% }
+.quickLinks.active { font-weight: bold; text-decoration: underline; color: #000000; }
+/* --------------------------------------------------- Headings --- */
+h1, h2, h3, h4, h5, h6 {
+  margin:1em 0 0.5em 0;line-height:1.2;font-weight:normal;}
+h1 {font-size:250%;}
+h2 {font-size:180%;}
+h3 {font-size:140%;}
+h4 {font-size:120%;}
+h5 {font-size:110%;}
+h6 {font-size:100%;}
+
+/* ------------------------------------- paragraph, small, etc. --- */
+p {margin-bottom:0.5em;font-weight:normal;font-size:100%;}
+p.userName {text-align:right;line-height:18px;margin:0;color:#000;}
+small {font-size:85%;}
+address {font-style:normal;}
+
+/* -------------------------------------- align, spacing, other --- */
+.spc00 {letter-spacing:0;}
+.spc06 {letter-spacing:.6em;}
+.spc10 {letter-spacing:1em;}
+
+.alignLeft   {text-align:left;}
+.alignRight  {text-align:right;}
+.alignCenter {text-align:center;}
+
+.f10 {font-size:100%;}
+.bld {font-weight:bold;}
+.noMrgn   {margin:0;}
+.autoMrgn {margin:0 auto;}
+.rightPdng10 {padding-right:10px;}
+.rightPdng20 {padding-right:20px;}
+.leftPdng20  {padding-left:20px;}
+
+.imgFloatRight {margin-left:15px;float:right;}
+.imgFloatLeft  {margin-right:15px;float:left;}
+.floatLeft {float:left;}
+
+.color {color:#38348b;}
+.color20{color:#38348b;font-size:16px}
+.bold {font-weight: bold;}
+.red {color:red;}
+
+/* ======================================= DIVISION's structure === */
+#header, #pageContent, #footer_wrap {
+  position:relative;width:1000px; margin:5px auto;
+  text-align:left;clear:both;}
+#header {
+  background:#fff;
+  width:1000px;height:120px;}
+#pageContent {
+  padding:0 20px 20px 20px;background-color:#fff;}
+#footer {
+  position:relative;width:100%;margin:0 0 0 0;padding:0;
+  text-align:left;clear:both;
+ 
+  border-top:5px #e0e0e0 solid;}
+
+/* ------------------------------------------------- QUICK menu --- */
+ul#quickMenu {
+  overflow:hidden;float:right;height:40px;margin:0;padding:0;
+  list-style-type:none;font-size:100%;font-weight:normal;line-height:40px;}
+#quickMenu li {
+	float:left;
+	margin:0 0 0 2px;
+	padding:0;
+	list-style-type: none; 
+}
+a.public, a.sitemap, a.logout {
+  background:transparent url("/Resources/images/icon_public.png") 0 50% no-repeat;
+  display:inline;margin:0;padding:0 0 0 30px;}
+a.sitemap {background-image:url("/Resources/images/icon_sitemap.png");}
+a.logout  {background-image:url("/Resources/images/icon_logout.png");}
+
+/* -------------------------------------------------- MAIN menu --- */
+
+#mainMenu {margin:0;padding:2px 0 0 0;}
+ul#mainMenu {
+  overflow:hidden;height:46px;margin:0 0 0 200px;padding:0;
+  list-style-type:none; line-height:46px;  
+  text-transform:none;}
+#mainMenu li {display: block; float: left; margin: 0px; padding: 0px 5px 0px 0px;}
+#mainMenu a { display: inline; padding: 2px 20px 3px 5px; text-decoration: none; 
+                     font: bold 20px Calibri, Tahoma, Sans-Serif; color: #F29F00; background: #FFFFFF; 
+                     border-bottom: 4px solid #EBE0FF;  } 
+#mainMenu li a:hover, #mainMenu li.home a { border-bottom: 4px solid #df002c !important; } 
+
+.topMenu {padding-left:20px; padding-top:0; }
+
+/* --------------------------------------------------- SUB menu --- */
+
+
+.topSubNav { list-style: none; float: left; margin: 5px 0px 10px 300px; padding: 0px; }
+.topSubNav li { display: block; float: left; margin: 0px; padding: 0px 5px 0px 0px; }
+.topSubNav li a { padding: 2px 20px 3px 5px; text-decoration: none; 
+                     font: bold 14px Calibri, Tahoma, Sans-Serif; color: #F29F00; background: #FFFFFF; }
+.topSubNav li a:hover, .topSubNav li.active a { color: #df002c; }
+/* ----------------------------------------------------- Footer --- */
+#footer { margin: 0 5px 0px 5px; padding: 0 5px 5px 5px; background: #FAFAFA; font-size: 11px; 
+          border-top: 2px solid #DDD; border-bottom: 1px solid #CCC; color: #666;}
+#footer a { color: #FF6666; }
+
+/* --------------------------------------------------- HOME Page ---*/
+div.section {
+  
+  display: block; padding: 5px 5px 2px 10px; border-bottom: 1px solid #CCCCCC; background: #FFFFFF; font-weight: bold;
+                   font-size: 12px; color: #666666;}
+.section h2 {
+  margin:0 0 0 0;padding:0 0 0 20px; font-weight:bold;
+  
+  line-height:60px;font-size:120%;color:#666;}
+ul.section {list-style-type:square;color:#ff6666;margin-top:10px;}
+.section a {color:#666;}
+
+
+
+
+
+.dialog { text-align: left;  margin: 8px; }
+.dialog .header { display: block; padding: 0px 5px 2px 10px; border-bottom: 1px solid #CCCCCC; background: #FFFFFF; font-weight: bold;
+                   font-size: 140%; color: #666666; }
+.dialog .body { display: block; padding: 5px 5px 10px 5px; background: #FFFFFF; }
+.dialog .body ul { margin: 0px; padding: 0px 0px 0px 10px; }
+.dialog .body ul li { line-height: 1.5em; list-style-image:url("/Resources/images/tr.png"); }
+.dialog .body ul li a { text-decoration: none; color: #38348b; }
+.dialog .body ul li a:hover { text-decoration: underline; color: #38348b; }/*red underlines df002c*/
+.dialog .body ul li div { padding: 5px 5px 15px 15px; }
+.dialog .body ul li div, .dialog .body ul li span { color: #000000; }
+/* nested DIVs */
+.dialog .body ul li div div { padding: 0px; }
+/* nested ULs */
+.dialog .body ul li ul { margin: 0px; padding: 0px 0px 0px 10px; }
+.dialog .body ul li ul li { line-height: 1.5em; list-style-type: none; color: #FF6666; }
+.dialog .body ul li ul li:before { content: "- \0020"; }
+
+
+.dlgSmall { width: 300px; }
+.dlgMedium { width: 450px; }
+.dlgLarge { width: 700px; }
+
+.alignLeft { text-align: left; }
+.alignCenter { text-align: center; }
+.alignRight { text-align: right; }
+.alignJustify { text-align: justify; }
+
+.centered { margin-left: auto; margin-right: auto; }
+
+.floatLeft { float: left; }
+.floatRight { float: right; }
+
+.nobr { white-space: nowrap; }
+
+
+
+
+.clear { clear:both; line-height: 0px; }
+
+
+
+/* ---------------------------------------------- Navigation Bar ---*/
+.navigationBar {margin:1em 0;text-align:right;}
+.navigationBar a {margin:10px;}
+a.first, a.prev, a.next, a.last {
+  display:inline;padding-left:20px; color:#38348b;
+  background:transparent url("/Resources/images/16x16_first.png") left 50% no-repeat;}
+a.next, a.last {
+  background:transparent url("/Resources/images/16x16_next.png") right 50% no-repeat;}
+a.prev {background-image:url("/Resources/images/16x16_prev.png")}
+a.next {background-image:url("/Resources/images/16x16_next.png")}
+a.last {background-image:url("/Resources/images/16x16_last.png")}
+
+a.next, a.last {padding-left:0;padding-right:20px;}
+a.currentPage {font-size:130%;color:#000;}
+
+/* ======================================================= FORMS ===*/
+form {padding:0 0 20px;font-size:100%;}
+fieldset {padding:0;}
+fieldset.noPdng {padding:0;}
+
+.brd_div_form {
+  margin:5px 0;border:1px solid #ccc;background:#f6f6f6;
+  font-weight:normal;font-size:120%;color:#38348b;} /*filter*/
+.brd_div_form {overflow:auto;padding:0 5px;}
+textarea {overflow:auto;}
+input.chk {
+  margin:0 10px 0 0;padding:0px;
+  border:0;background-color:transparent;}
+
+label.tbl {
+  line-height:1.3em;text-align:right;
+  display:block;float:left;clear:left;
+  margin:0;padding:.6em 15px 0 0; }
+
+  .tboardHeader {display: block; font-weight: bold; font-style: italic; font-size: 15px; color: #F29F00; padding: 5px 5px 2px 10px; 
+                margin: 15px 5px -3px 5px; background: #FFFFFF;}
+
+.info{
+
+  background: url("/Resources/images/info.png") 0 0 no-repeat;}
+/* ----------------------------------------------------- Buttons ---*/
+input[type="button"], input[type="submit"] { border: 1px solid #AAAAAA; cursor: pointer; }
+div.btnStart,
+div.btnEnd,
+div.btnMiddle,
+div.btnStart input {
+  float:left;height:20px;cursor:pointer;
+  padding:0 10px;}
+
+div.btnStart {
+  float:none;padding-right:0;
+  background:transparent url("/Resources/images/link_left.png") 0 0 no-repeat;}
+div.btnEnd {
+  padding-left:0;
+  background:transparent url("/Resources/images/link_right.png") 105% 0 no-repeat;}
+div.btnMiddle {background:transparent url("/Resources/images/bg_links.png") 0 0 repeat-x;}
+
+div.btnStart input, div.btnMiddle {
+  margin:0;padding:0;border:0 none;white-space: nowrap;
+  background:#9cf url("/Resources/images/bg_links.png") 0 0 repeat-x;
+  font-size:105%;font-style:normal;}
+
+div.btnStart input.sbmt {
+  background:transparent url("/Resources/images/icon_check.png") 0 50% no-repeat;
+  padding-left:16px;font-style:normal;}
+div.btnStart input.slct {
+  background:transparent url("/Resources/images/icon_zoom.png") 0 50% no-repeat;
+  padding-left:16px;padding-right:0px;font-style:normal;}
+
+/* ------------------------------------------------------ Tables ---*/
+table.pad10 td {padding:3px 10px;}
+.listTable {margin:5px;font-size:105%;width:990px;border:0px;}
+.listTable th, .listTable td, .listTable .headerRow td {
+    color:#1b1b1b;padding:3px;vertical-align:top;}
+.listTable td, .listTable th {vertical-align:middle;}
+.listTable td {padding:5px;border-bottom:1px #ddd solid;border-top: 1px #eee solid;}
+.listTable th {padding:3px 5px;background-color:#ddd;color:#333;border:1px #fff solid;font-weight:bold;}
+
+/* -------------------------------------------- Other (in forms) ---*/
+#divSectorsDisplayList, #divSectorsDisplayList.compact, 
+#divCountriesDisplayList, #divCountriesDisplayList.compact,
+#divPosSectorsDisplayList, #divPosSectorsDisplayList.compact, 
+#divPartners { border:1px solid #ccc;background:#f6f6f6; font-weight:normal;font-size:105%;color:#38348b; width: 380px; padding: 5px; color: #333333; float: left; margin-right: 5px; font-size: 11px; }
+
+/* -------------------------------------------- search form ---*/
+.tboardHeader { display: block; font-weight: bold; font-style: normal; font-size: 17px; color: #F29F00; padding: 5px 5px 2px 10px; 
+                margin: 15px 5px -3px 5px; background: #FFFFFF; }
+
+.fldLabel { color: #666666; font-weight: bold; line-height: 1.5em; }
+.inputFldWide { width: 380px;}
+.inputFldWideS { width: 380px;  height:35px; }
+.inputFldMid { width: 190px; }
+.inputFldSmall { width: 100px; }
+.inputFldTiny { width: 70px;}
+.inputFldTinyH { width: 70px; height:12px; }
+
+
+.tbSectionLinks { padding: 20px; border: 2px solid #CCCCCC; margin: 0; color: #38338f;  font-weight: bold; font-size:90%;}
+.tbSectionLinks.horizontal {  }
+
+.tbSectionLinks.horizontal .tbLink { padding: 0px; }
+
+.nodata {
+    color: #FF0000;
+    display: normal;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
+.listLabel {padding: 0 0 0 140px; }
+.listTitleReference { display: block; padding: 0 0 0 200px; }
+
+#tblSearchCriteria { background: #FFFFFF; margin-bottom: 10px; width:580px; }
+#tblReferenceCriteria { background: #FFFFFF; width:640px; }
+
+
+
+
+/*===========================*/
+
+#tblSearchCriteria { background: #FFFFFF; margin-bottom: 10px; width:600px; }
+#tblSearchCriteria td { border-bottom: 1px solid #F5F5F5; padding: 3px; }
+#tblSearchCriteria td.l { border-bottom: 1px solid #FFFFFF; background: #f5f5f5; }
+
+
+.fldLabel { color: #666666; font-weight: bold; line-height: 1.5em; }
+.inputFldWide { width: 380px; }
+.inputFldMid { width: 190px; }
+.inputFldSmall { width: 100px; }
+.inputFldTiny { width: 50px; }
+
+.contentSpace{height: 100px}
+
+/*=================================*/
+#htmlPopup {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #FFFFFF;
+    font-size: 105%;
+    height: auto;
+    left: 50%;
+    margin: 30px auto 0 -475px;
+    position: absolute;
+    text-align: left;
+    width: 950px;
+}
+
+
+/* added from the old style.css: */
+
+#htmlPopupContainer { position: absolute; width: 100%; height: 100%; left: 0; top: 0; background: url('/Resources/Images/bg-trsp-dark-grey.gif'); }
+
+#htmlPopup { position: absolute; width: 950px; height: auto; left: 50%; margin: 30px auto 0px -475px; border:1px solid #FFFFFF; 
+             background: #FFFFFF; text-align: left; font-size: 11px; }
+#htmlPopup #htmlPopupTitle { background: url('/Resources/Images/bg-light-blue.gif'); color: #565e6b; font-weight: bold; }
+#htmlPopup #htmlPopupTitle #htmlPopupBtnHide { display: block; position: relative; padding: 3px; float: right; 
+                                               background: #FF5555 url('/Resources/Images/bg-light-red.gif');
+                                               text-decoration: none; color: #FFFFFF; font-weight: bold; }
+#htmlPopup #htmlPopupTitle #htmlPopupBtnHide:hover { background: #FF5555; }
+
+#htmlPopup #htmlPopupTitle #htmPopupTitleContent { display: block; float: none; padding: 3px; }
+#htmlPopup #htmlPopupContent { padding: 0px 0px 5px 0px; }
+
+
+.interestedMembers { margin: 5px; padding: 5px 5px 0px 5px; border: 1px solid #EEEEEE; }
+.interestedMembers div { margin: 0px 0px 5px 0px; padding: 5px; background: #F3F3F3; }
+.interestedMembers a { text-decoration: none; color: #FF6666; }
+.interestedMembers a:hover { text-decoration: underline; color: #FF3333; }
+.interestedMembers.compact .compLink { text-decoration: underline; color: #000000; }
+.interestedMembers.compact .compLink:hover { color: #FF3333; }
+.interestedMembers.compact { margin: 2px; padding: 2px 2px 0px 2px; }
+.interestedMembers.compact div { margin: 0px 0px 2px 0px; padding: 2px; }
+
+
+#divSectorsDisplayList .lstItem, 
+#divCountriesDisplayList .lstItem,
+#divPosSectorsDisplayList .lstItem,
+#divPartners .lstItem { display: block; margin: 0px 0px 2px 0px; }
+
+#divSectorsDisplayList .lstItem .itxt, 
+#divCountriesDisplayList .lstItem .itxt, 
+#divPosSectorsDisplayList .lstItem .itxt,
+#divPartners .lstItem .itxt { display: block; padding: 2px 3px 1px 5px; }
+
+#divSectorsDisplayList .lstItem .itr, 
+#divCountriesDisplayList .lstItem .itr, 
+#divPosSectorsDisplayList .lstItem .itr, 
+#divPartners .lstItem .itr { display: block; padding: 3px; float: right; }
+
+.lstItem .itr a { display: block; width: 10px; height: 10px; text-decoration: none; font-size: 9px; position: relative; }
+
+/* color schemes for the list items: */
+#divSectorsDisplayList .lstItem { background: #fff5e4; border-right: 1px solid #ffd8b7; border-bottom: 1px solid #ffd8b7; }
+#divSectorsDisplayList .lstItem .itr a { background: url('/Resources/Images/ico-close-red.gif') no-repeat left top; }
+#divCountriesDisplayList .lstItem { background: #f3f0ff; border-right: 1px solid #d9d0ff; border-bottom: 1px solid #d9d0ff; }
+#divCountriesDisplayList .lstItem .itr a { background: url('/Resources/Images/ico-close-blue.gif') no-repeat left top; }
+#divPosSectorsDisplayList .lstItem { background: #fff5e4; border-right: 1px solid #ffd8b7; border-bottom: 1px solid #ffd8b7; }
+#divPosSectorsDisplayList .lstItem .itr a { background: url('/Resources/Images/ico-close-red.gif') no-repeat left top; }
+#divPartners .lstItem { background: #eef9e8; border-right: 1px solid #d5f1c6; border-bottom: 1px solid #d5f1c6; }
+#divPartners .lstItem .itr a { background: url('/Resources/Images/ico-close-green.gif') no-repeat left top; }
+
+#success, #error { display: block; padding: 2px 5px 2px 5px; width: 780px; font-weight: bold; }
+#success { color: green; }
+#error { color: red; }
+
+
+/* END OF - added from the old style.css */

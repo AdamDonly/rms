@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<emailTemplate>
+	<sender></sender>
+	<recipients>
+		<recipient>cv@ibf.be</recipient>
+	</recipients>
+	<subject>ICA Website - New expert registered</subject>
+	<body>
+		<p>Dear Expert Centre Database team,</p>
+
+		<p>New expert registered his CV on ICA website.</p>
+		<p>Please find hereafter the contact details of this expert:</p>
+		[#ExpertDetails#]<br />
+
+		Please find expert's CV attached or you can download it from the following URL:
+		[#ExpertCvUrl#]<br /><br />
+
+		<p>Thank you for encoding this CV.</p>
+
+		<p>ICA Website ;-)</p>
+	</body>
+</emailTemplate>

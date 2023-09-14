@@ -1,0 +1,586 @@
+<%
+' -----------------------------------------------------------------------------
+' Login form
+
+dictLabelSpanish.Add "Login name", "Identifiant"
+
+dictLabelSpanish.Add "Password", "Mot de passe"
+
+dictLabelSpanish.Add "Access is denied!", "Accédez est nié !"
+
+dictLabelSpanish.Add "Please fill in your login name", "Veuillez compléter votre nom d'ouverture"
+
+dictLabelSpanish.Add "Please fill in your password", "Veuillez compléter votre mot de passe"
+
+dictLabelSpanish.Add "The login or password you supplied are not correct. They are case sensitive: check the CAPS LOCK key. Please verify the punctuation and spaces as well.", "L'ouverture ou le mot de passe que vous avez fourni n'êtes pas correct. Ils distinguent les majuscules et minuscules : vérifiez la clef de FONCTION MAJUSCULE. Veuillez vérifier la ponctuation et les espaces aussi bien."
+
+dictLabelSpanish.Add "Please enter your login name and password", "Veuillez entrer votre identifiant et mot de passe"
+
+dictLabelSpanish.Add "Forgot your login or password?", "Avez-vous oublié votre Identifiant ou mot de passe?"
+
+
+' -----------------------------------------------------------------------------
+' Forgot password or login form
+
+dictLabelSpanish.Add "FORGOTTEN PASSWORD OR LOGIN", "MOT DE PASSE OU OUVERTURE OUBLIÉ"
+
+dictLabelSpanish.Add "Your login and password has now been sent to your email. Please check your email and login.", "Votre ouverture et mot de passe a été maintenant envoyée à votre email. Veuillez vérifier votre email et login."
+
+dictLabelSpanish.Add "The email address you supplied is not available in our database.", "L'adresse email que vous avez fourni n'est pas disponible dans notre base de données."
+
+
+' -----------------------------------------------------------------------------
+' Homepage
+dictLabelSpanish.Add "Homepage", "Page d'accueil"
+
+dictLabelSpanish.Add "Search for experts", "Recherche des experts"
+
+dictLabelSpanish.Add "Register new expert", "Encodage d'un nouvel expert"
+
+dictLabelSpanish.Add "Complete CV registration", "Enregistrer un nouveau CV"
+
+dictLabelSpanish.Add "Manage the database", "Gérez la base de données"
+
+dictLabelSpanish.Add "List of all experts visible in the database", "Liste de tous les experts"
+
+dictLabelSpanish.Add "List of experts registered this week", "Experts enregistrés cette semaine"
+
+dictLabelSpanish.Add "List of experts registered this month", "Experts enregistrés ce mois"
+
+dictLabelSpanish.Add "List of experts with CVs not updated for the past 12 months", "Experts n’ayant pas mis à jour leur CV pendant les 12 derniers mois"
+
+dictLabelSpanish.Add "List of deleted experts", "Liste d'experts supprimés"
+
+dictLabelSpanish.Add "Register new project", "Enregistrer un nouveau projet"
+
+dictLabelSpanish.Add "New project", "Nouveau projet"
+
+dictLabelSpanish.Add "Projects. Tendering", "Projets soumissionnés"
+
+dictLabelSpanish.Add "Projects. Running", "Projets en cours"
+
+dictLabelSpanish.Add "Projects. Closed", "Projets achevés"
+
+dictLabelSpanish.Add "Projects. Inactive", "Projets inactifs"
+
+
+' -----------------------------------------------------------------------------
+' Project registration
+
+dictLabelSpanish.Add "PROJECT REGISTRATION", "ENREGISTREMENT DE PROJET"
+
+dictLabelSpanish.Add "Project status", "Statut de projet"
+
+dictLabelSpanish.Add "Country / Region", "Pays / Région"
+
+dictLabelSpanish.Add "Description", "Description"
+
+dictLabelSpanish.Add "Deadline", "Date-limite"
+
+
+' -----------------------------------------------------------------------------
+' CV registration step 1 (register.asp)
+
+dictLabelSpanish.Add "CV registration",	"Enregistrement de cv"
+
+dictLabelSpanish.Add "Personal information",	"Informations personnelles"
+
+dictLabelSpanish.Add "If you have already registered your profile, please <a href=""login.asp" & AddUrlParams(sParams, "url=" + sScriptFullName) & """>log in to update your details</a>.", "Si vous avez déjà enregistré votre profil, veuillez svp cliquer sur ce <a href=""login.asp" & AddUrlParams(sParams, "url=" + sScriptFullName) & """>lien pour mettre à jour votre CV</a>."
+
+dictLabelSpanish.Add "Please fill in all the relevant information and as many details on your experience as possible.", "Veuillez compléter toutes les informations importantes et autant de détails sur votre expérience que possible."
+
+dictLabelSpanish.Add "Fields marked with <span class=""fcmp"">*</span> are required information.", "Les Champs identifiés par <span class=""fcmp"">*</span> sont obligatoires."
+
+dictLabelSpanish.Add "You can always go back and edit each section by clicking on the menu at the top.", "Vous pouvez toujours retourner en arrière et éditer chaque section en cliquant sur le menu au dessus."
+
+dictLabelSpanish.Add "PERSONAL INFORMATION", "INFORMATIONS PERSONNELLES"
+
+dictLabelSpanish.Add "CV language", "Langue du CV"
+
+dictLabelSpanish.Add "Title", "Civilité"
+
+dictLabelSpanish.Add "Please select", "Choisissez svp"
+
+dictLabelSpanish.Add "First name", "Prénom(s)"
+
+dictLabelSpanish.Add "Middle name", "Deuxième prénom"
+
+dictLabelSpanish.Add "Family name", "Nom"
+
+dictLabelSpanish.Add "Last name", "Nom"
+
+dictLabelSpanish.Add "Surname", "Nom"
+
+dictLabelSpanish.Add "Name", "Nom"
+
+dictLabelSpanish.Add "Surname(s) / First name(s)", "Nom(s) / Prénom(s)"
+
+dictLabelSpanish.Add "Date of birth", "Date de naissance"
+
+dictLabelSpanish.Add "Day", "Jour"
+
+dictLabelSpanish.Add "Month", "Mois"
+
+dictLabelSpanish.Add "Year", "Année"
+
+dictLabelSpanish.Add "Place of birth", "Lieu de naissance"
+
+dictLabelSpanish.Add "Civil status", "État civil"
+
+dictLabelSpanish.Add "Nationality", "Nationalité"
+
+dictLabelSpanish.Add "Click on <b>Add</b> to add a selected nationality to your list.", "Cliquez sur <b>ajouter</b> pour ajouter une nationalité choisie à votre liste."
+
+dictLabelSpanish.Add "If you want to remove a nationality, highlight it and click on <b>Remove</b>", "Si vous voulez supprimer une nationalité, sélectionnez-la et<br/>  cliquez sur <b>supprimer</b>"
+
+dictLabelSpanish.Add "Add", "Ajoutez"
+
+dictLabelSpanish.Add "Remove", "Supprimer"
+
+dictLabelSpanish.Add "Gender", "Sexe"
+
+dictLabelSpanish.Add "male", "Masculin"
+
+dictLabelSpanish.Add "female", "Féminin"
+
+dictLabelSpanish.Add "Marital status", "État civil"
+
+dictLabelSpanish.Add "Primary phone", "Téléphone"
+
+dictLabelSpanish.Add "Phone", "Téléphone"
+
+dictLabelSpanish.Add "Primary email", "Email"
+
+dictLabelSpanish.Add "Status", "Statut"
+
+dictLabelSpanish.Add "Current position", "Poste actuel"
+
+dictLabelSpanish.Add "Present position", "Situation présente"
+
+dictLabelSpanish.Add "Desired employment / Occupational field", "Poste visé"
+
+dictLabelSpanish.Add "Key qualifications", "Principales compétences"
+
+dictLabelSpanish.Add "Years of professional experience", "Nombre d'années d’expérience"
+
+dictLabelSpanish.Add "use only numbers", "utilisez uniquement des chiffres"
+
+dictLabelSpanish.Add "Specific experience in the region", "Expérience spécifique dans la région"
+
+dictLabelSpanish.Add "Specific experience in non industrialised countries", "Expérience spécifique dans la région"
+
+dictLabelSpanish.Add "SIRET number", "Numéro SIRET"
+
+' -----------------------------------------------------------------------------
+' CV registration step 2 (register2.asp)
+
+dictLabelSpanish.Add "Education", "Éducation"
+dictLabelSpanish.Add "EDUCATION", "ÉDUCATION"
+
+dictLabelSpanish.Add "EDUCATION AND TRAINING", "ÉDUCATION ET FORMATION"
+
+dictLabelSpanish.Add "Education and training", "Éducation et formation"
+
+dictLabelSpanish.Add "Please fill in the institution name", "Veuillez compléter le institution"
+
+dictLabelSpanish.Add "Please fill in the education end date", "Veuillez compléter la date de fin de la formation"
+
+dictLabelSpanish.Add "Please fill in the education dates properly", "Veuillez insérer les dates de formation correctement"
+
+dictLabelSpanish.Add "Please specify a type of diploma or degree obtained", "Veuillez spécifier un type de diplôme ou diplôme universitire obtenu"
+
+dictLabelSpanish.Add "Please specify the education subject", "Veuillez spécifier les matieres d'enseignement"
+
+dictLabelSpanish.Add "No.", "Numéro."
+
+dictLabelSpanish.Add "Institution name", "Institution où le<br />diplôme a été obtenu"
+
+dictLabelSpanish.Add "Institution", "Institution"
+
+dictLabelSpanish.Add "Start date", "Date de début"
+
+dictLabelSpanish.Add "Date from", "Date début"
+
+dictLabelSpanish.Add "End date", "Date de fin"
+
+dictLabelSpanish.Add "Date to", "Date fin"
+
+dictLabelSpanish.Add "Dates (from – to)", "Date (début - fin)"
+
+dictLabelSpanish.Add "Subject", "Sujet"
+
+dictLabelSpanish.Add "Modify", "Modifiez"
+
+dictLabelSpanish.Add "Delete", "Supprimez"
+
+dictLabelSpanish.Add "Type of Diploma /<br />Degree obtained", "Type de diplôme obtenu"
+
+dictLabelSpanish.Add "Degree(s) or Diploma(s) obtained", "Diplôme(s) obtenu(s)"
+
+dictLabelSpanish.Add "If other please specify", "Si autre veuillez spécifier"
+
+dictLabelSpanish.Add "If needed, please specify the exact title of your diploma", "Si nécessaire spécifiez le titre exact de votre diplôme"
+
+dictLabelSpanish.Add "If needed, please specify the exact title of your degree", "Si nécessaire spécifiez le titre exact de votre diplôme"
+
+dictLabelSpanish.Add "Exact title of your degree", "Le titre exact de votre diplôme"
+
+dictLabelSpanish.Add "Name and type of organisation providing education and training", "Nom et type de l'établissement d'enseignement ou de formation"
+
+dictLabelSpanish.Add "Principal subjects/occupational skills covered", "Principales matières/compétences professionnelles couvertes"
+
+dictLabelSpanish.Add "Title of qualification awarded", "Intitulé du certificat ou diplôme délivré"
+
+dictLabelSpanish.Add "Level in national or international classification", "Niveau dans la classification nationale ou internationale"
+
+
+' -----------------------------------------------------------------------------
+' CV registration step 2 (register21.asp)
+
+dictLabelSpanish.Add "Training", "Autre formation"
+
+dictLabelSpanish.Add "TRAININGS", "AUTRE FORMATION"
+
+dictLabelSpanish.Add "Please fill in the training title", "Veuillez compléter le titre de formation"
+
+dictLabelSpanish.Add "Please fill in the training end date", "Veuillez insérer la date de fin de formation"
+
+dictLabelSpanish.Add "Please fill in the training dates properly", "Veuillez insérer les dates de formation correctement"
+
+dictLabelSpanish.Add "Not specified", "Non spécifié"
+
+dictLabelSpanish.Add "Title", "Titre"
+
+dictLabelSpanish.Add "Skills / Qualifications", "Qualifications"
+
+dictLabelSpanish.Add "Achievements", "Accomplissements"
+
+
+' -----------------------------------------------------------------------------
+' CV registration step 3 (register3.asp)
+
+dictLabelSpanish.Add "Professional experience", "Expériences professionnelles"
+
+dictLabelSpanish.Add "Please specify the project title or the name of the company or organisation", "Veuillez spécifier le titre du projet ou le nom de la compagnie ou de l'organisation"
+
+dictLabelSpanish.Add "Please fill in the experience start date", "Veuillez insérer la date de début d'expérience"
+
+dictLabelSpanish.Add "Please fill in the experience end date", "Veuillez insérer la date de fin d'expérience"
+
+dictLabelSpanish.Add "Please fill in the experience dates properly", "Veuillez insérer les dates d'expérience correctement"
+
+dictLabelSpanish.Add "Please fill in your position", "Veuillez compléter votre position"
+
+dictLabelSpanish.Add "Please make the description of the project shorter", "Veuillez rendre la description du projet plus courte"
+
+dictLabelSpanish.Add "Please select at least one country", "Veuillez choisir au moins un pays"
+
+dictLabelSpanish.Add "You cannot select more than 30 countries for one project", "Vous ne pouvez pas choisir plus de 30 pays pour un projet"
+
+dictLabelSpanish.Add "Please select at least one sub-sector of expertise", "Veuillez choisir au moins un sous-secteur d'expertise"
+
+dictLabelSpanish.Add "You cannot select more than 50 sectors for one project", "Vous ne pouvez pas choisir plus de 50 secteurs pour un projet"
+
+dictLabelSpanish.Add "Project title", "Titre du projet"
+
+dictLabelSpanish.Add "Project title<br /><span class=""sml2"">(if relevant)</span>", "Titre du projet<br /><span class=""sml2"">(le cas échéant)</span>"
+
+dictLabelSpanish.Add "Position", "Position"
+
+dictLabelSpanish.Add "Project / Organisation", "Projet / organisation"
+
+dictLabelSpanish.Add "Company / Organisation", "Compagnie / organisation"
+
+dictLabelSpanish.Add "Position / Responsibility", "Position / responsabilité"
+
+dictLabelSpanish.Add "Beneficiary", "Bénéficiaire"
+
+dictLabelSpanish.Add "Location", "Lieu"
+
+dictLabelSpanish.Add "Countries", "Pays"
+
+dictLabelSpanish.Add "Sectors", "Secteurs"
+
+dictLabelSpanish.Add "Client references", "Références du client"
+
+dictLabelSpanish.Add "Company and reference person", "Société et personne de référence"
+
+dictLabelSpanish.Add "Brief description of<br />the tasks assigned", "Courte description <br />des tâches assignées"
+
+dictLabelSpanish.Add "Description of<br />the tasks assigned", "Description <br />des tâches assignées"
+
+dictLabelSpanish.Add "Funding agency", "Agence de placement"
+
+dictLabelSpanish.Add "Major funding agencies", "Principaux organismes de financement"
+
+dictLabelSpanish.Add "Other funding agencies", "Autres organismes de financement"
+
+dictLabelSpanish.Add "Select funding agency from the list or specify in the field above if it is not in the list",
+"Choisissez l'agence de placement à partir de la liste ou spécifiez dans le domaine ci-dessus s'il n'est pas dans la liste"
+
+dictLabelSpanish.Add "SELECT PROJECT'S COUNTRIES", "CHOISISSEZ LES PAYS DU PROJET"
+
+dictLabelSpanish.Add "SELECT PROJECT'S SUB-SECTORS", "CHOISISSEZ LES SOUS-SECTEURS DU PROJET"
+
+dictLabelSpanish.Add "KEY QUALIFICATION AND SPECIFIC EXPERIENCE (PROJECTS, ETC.)",
+"PRINCIPALES QUALIFICATIONS ET EXPERIENCES SPÉCIFIQUE (PROJETS, ETC)"
+
+dictLabelSpanish.Add "PROFESSIONAL EXPERIENCE", "EXPÉRIENCES PROFESSIONNELLES"
+
+dictLabelSpanish.Add "EMPLOYMENT RECORD AND COMPLETED PROJECTS", "EMPLOIS PASSES ET PROJETS RÉALISÉS"
+
+dictLabelSpanish.Add "WORK EXPERIENCE", "EXPÉRIENCE PROFESSIONNELLE"
+
+dictLabelSpanish.Add "Work experience", "Expérience professionnelle"
+
+dictLabelSpanish.Add "Ongoing", "En cours"
+
+dictLabelSpanish.Add "Reference", "Référence"
+
+dictLabelSpanish.Add "contact person", "personne à contacter"
+
+dictLabelSpanish.Add "Occupation or position held", "Fonction ou poste occupé"
+
+dictLabelSpanish.Add "Main activities and responsibilities", "Principales activités et responsabilités"
+
+dictLabelSpanish.Add "Name and address of employer", "Nom et adresse de l'employeur"
+
+dictLabelSpanish.Add "Type of business or sector", "Type ou secteur d’activité"
+
+dictLabelSpanish.Add "SELECT COUNTRIES IN WHICH YOU HAVE WORKED DURING THIS EXPERIENCE", "CHOISISSEZ LE OU LES PAYS OU VOUS AVEZ ACCOMPLI CETTE EXPERIENCE/MISSION"
+
+dictLabelSpanish.Add "only for international projects", "uniquement pour les projets internationaux"
+
+dictLabelSpanish.Add "First click on the sector title in the left column and sub-sectors will appear in the right column.<br />Then select the sub-sectors that best match your experience.",
+ "Cliquez d’abord sur le secteur, dans la colonne de gauche et les sous-secteurs apparaîtront dans la colonne de droite. Choisissez alors les sous-secteurs qui correspondent au mieux à l’expérience que vous décrivez. "
+
+' -----------------------------------------------------------------------------
+' CV registration step 4 (register4.asp)
+
+dictLabelSpanish.Add "Languages", "Langues"
+
+dictLabelSpanish.Add "Please select your native language", "S'il vous plaît sélectionnez votre langue maternelle"
+
+dictLabelSpanish.Add "Please choose a language", "S'il vous plaît choisissez une langue"
+
+dictLabelSpanish.Add "Please choose the levels of your knowledge", "S'il vous plaît choisissez le niveau de vos connaissances"
+
+dictLabelSpanish.Add "You are only allowed 20 languages", "Vous êtes seulement autorisé 20 langues"
+
+dictLabelSpanish.Add "Click on [ Add ] button to add a selected language to your list.<br />If you want to remove a language, highlight it and click on [ Remove ] button.",
+"Sélectionnez votre ou vos langues maternelles et cliques sur [ Ajouter ] pour les ajouter à la liste. Si vous souhaitez supprimer une langue, sélectionnez-la et cliquez sur [ Enlever ]."
+
+dictLabelSpanish.Add "Choose a language and specify your level (reading, speaking, writing). To add another languages click on [ Add language ] button and specify the levels for each of them.",
+"Choisissez une langue et spécifiez votre niveau (lu, parlé, écrit). Pour ajouter une langue cliquez sur [ Ajouter une langue ] et spécifiez à chaque fois les niveaux pour chacune d'entre elles."
+
+dictLabelSpanish.Add "Language", "Langue"
+
+dictLabelSpanish.Add "Native", "langue maternelle"
+
+dictLabelSpanish.Add "Mother tongue(s)", "Langue(s) maternelle(s)"
+
+dictLabelSpanish.Add "Other language(s)", "Autre(s) langue(s)"
+
+dictLabelSpanish.Add "Reading", "Lu"
+
+dictLabelSpanish.Add "Understanding", "Comprendre"
+
+dictLabelSpanish.Add "Speaking", "Parlé"
+
+dictLabelSpanish.Add "Writing", "Ecrit"
+
+dictLabelSpanish.Add "NATIVE LANGUAGES", "LANGUE MATERNELLES"
+
+dictLabelSpanish.Add "FOREIGN LANGUAGES", "LANGUES ÉTRANGÈRES"
+
+dictLabelSpanish.Add "LANGUAGES SKILLS", "CAPACITÉS LINGUISTIQUES"
+
+dictLabelSpanish.Add "Language skills: Indicate competence on a scale of 1 to 5 (1 - excellent; 5 - basic)",
+"Connaissances linguistiques: Indiquer vos connaissances sur une échelle de 1 à 5 (1 - niveau excellent; 5 - niveau rudimentaire)"
+
+' -----------------------------------------------------------------------------
+' CV registration step 5 (register5.asp)
+
+dictLabelSpanish.Add "Contact details & availability", "Coordonnées & disponibilité"
+
+dictLabelSpanish.Add "Contact details", "Coordonnées"
+
+dictLabelSpanish.Add "availability", "disponibilité"
+
+dictLabelSpanish.Add "permanent address", "adresse permanente"
+
+dictLabelSpanish.Add "Please fill in a street of ", "S'il vous plaît remplir la rue de "
+
+dictLabelSpanish.Add "Please fill in a city of ", "S'il vous plaît remplir la ville de "
+
+dictLabelSpanish.Add "Please fill in a postcode of ", "S'il vous plaît remplir le code postal de "
+
+dictLabelSpanish.Add "Please select a country of ", "S'il vous plaît sélectionner le pays de "
+
+dictLabelSpanish.Add "Please fill in ", "S'il vous plaît remplir "
+
+dictLabelSpanish.Add " permanent phone number.", " numéro de téléphone."
+
+dictLabelSpanish.Add "Please specify ", "S'il vous plaît précisez "
+
+dictLabelSpanish.Add " permanent email.", " adresse email."
+
+dictLabelSpanish.Add "Please retype ", "S'il vous plaît retaper "
+
+dictLabelSpanish.Add "permanent email correctly", "adresse email correctement"
+
+dictLabelSpanish.Add "current email correctly", "actuel courriel correctement"
+
+dictLabelSpanish.Add "Please make text of your availibility shorter.", "S'il vous plaît rendre le texte de votre disponibilité plus court."
+
+dictLabelSpanish.Add "Street", "Rue"
+
+dictLabelSpanish.Add "City", "Ville"
+
+dictLabelSpanish.Add "Postcode", "Code postal"
+
+dictLabelSpanish.Add "Country", "Pays"
+
+dictLabelSpanish.Add "Mobile", "GSM"
+
+dictLabelSpanish.Add "Fax", "Fax"
+
+dictLabelSpanish.Add "Website", "Site Web"
+
+dictLabelSpanish.Add "Please specify the periods in which you are available in the next two years.<br />To guarantee the best matches, please keep your availability information updated.",
+"Veuillez spécifier les périodes durant lesquelles vous êtes disponible pendant les deux années à venir. Merci de maintenir à jour les informations relatives à vos disponibilités."
+
+dictLabelSpanish.Add "Availability", "Disponibilité"
+
+dictLabelSpanish.Add "location", "pays"
+
+dictLabelSpanish.Add "Please state your preferences for short-and/or long-term missions.",
+"Veuillez spécifier vos préférences pour des missions courtes et / ou de long terme."
+
+dictLabelSpanish.Add "Preferences", "Préférences"
+
+dictLabelSpanish.Add "Short-term missions", "Missions à court terme"
+
+dictLabelSpanish.Add "Long-term missions", "Missions à long terme"
+
+dictLabelSpanish.Add "Other skills", "Autres compétences"
+
+dictLabelSpanish.Add "Other preferences", "D'autres préférences"
+
+dictLabelSpanish.Add "Membership in professional bodies", "Adhésion à des associations ou corps professionnels"
+
+dictLabelSpanish.Add "Membership of professional bodies", "Affiliation à une organisation professionnelle"
+
+dictLabelSpanish.Add "Publications", "Publications"
+
+dictLabelSpanish.Add "References", "Références"
+
+dictLabelSpanish.Add "PERMANENT ADDRESS", "ADRESSE PERMANENTE"
+
+dictLabelSpanish.Add "CURRENT ADDRESS", "ADRESSE ACTUELLE"
+
+dictLabelSpanish.Add "CURRENT ADDRESS (if different)", "ADRESSE ACTUELLE ( SI ELLE EST DIFFÉRENTE)"
+
+dictLabelSpanish.Add "CURRENT AVAILABILITY", "DISPONIBILITÉ ACTUELLE"
+
+dictLabelSpanish.Add "MISCELLANEOUS", "DIVERS"
+
+dictLabelSpanish.Add "ASSIGNMENT PREFERENCES", "PRÉFÉRENCE DES MISSIONS"
+
+dictLabelSpanish.Add "Assignment preferences", "Préférences des missions"
+
+dictLabelSpanish.Add "OTHER", "AUTRE"
+
+dictLabelSpanish.Add "Address", "Adresse"
+
+dictLabelSpanish.Add "Other relevant information (e.g., Publications)", "Autres informations pertinentes (p,ex., références de publications)"
+
+dictLabelSpanish.Add "Personal skills and competences", "Aptitudes et compétences personnelles"
+
+dictLabelSpanish.Add "Social skills and competences", "Aptitudes et compétences sociales"
+
+dictLabelSpanish.Add "Organisational skills and competences", "Aptitudes et compétences organisationnelles"
+
+dictLabelSpanish.Add "Technical skills and competences", "Aptitudes et compétences techniques"
+
+dictLabelSpanish.Add "Computer skills and competences", "Aptitudes et compétences informatiques"
+
+dictLabelSpanish.Add "Artistic skills and competences", "Aptitudes et compétences artistiques"
+
+dictLabelSpanish.Add "Other skills and competences", "Autres aptitudes et compétences"
+
+dictLabelSpanish.Add "Driving licence(s)", "Permis de conduire"
+
+dictLabelSpanish.Add "Additional information", "Information complémentaire"
+
+' -----------------------------------------------------------------------------
+' CV WB format 
+
+dictLabelSpanish.Add "FORM TECH-6", "FORMULAIRE TECH-6"
+dictLabelSpanish.Add "CURRICULUM VITAE (CV) FOR PROPOSED PROFESSIONAL STAFF", "CURRICULUM VITAE (CV) DU PERSONNEL CLE PROPOSE"
+
+dictLabelSpanish.Add "Proposed Position", "Poste"
+
+dictLabelSpanish.Add "only one candidate shall be nominated for each position", "un seul candidat par poste"
+
+dictLabelSpanish.Add "Name of Firm", "Nom du consultant"
+
+dictLabelSpanish.Add "insert name of firm proposing the staff", "indiquer le nom de la société proposant le personnel"
+
+dictLabelSpanish.Add "Name of Staff", "Nom de l’employé"
+
+dictLabelSpanish.Add "Date of Birth", "Date de naissance"
+
+dictLabelSpanish.Add "Education", "Formation"
+
+dictLabelSpanish.Add "Indicate college/university and other specialized education of staff member, giving names of institutions, degrees obtained, and dates of obtainment",
+"Indiquer les études universitaires et autres études spécialisées de l’employé ainsi que les noms des institutions fréquentées, les diplômes obtenus et les dates auxquelles ils l’ont été"
+
+dictLabelSpanish.Add "Membership of Professional Associations", "Affiliation à des associations/groupements professionnels"
+
+dictLabelSpanish.Add "Other Training", "Autres formations"
+
+dictLabelSpanish.Add "Indicate significant training since degrees under 5 - Education were obtained",
+"Indiquer toute autre formation reçue depuis 5 ci-dessus"
+
+dictLabelSpanish.Add "Countries of Work Experience", "Pays où l’employé a travaillé"
+
+dictLabelSpanish.Add "List countries where staff has worked in the last ten years", "Donner la liste des pays ou l’employé a travaillé au cours des 10 dernières années"
+
+dictLabelSpanish.Add "For each language indicate proficiency: good, fair, or poor in speaking, reading, and writing", 
+"Indiquer pour chacune le degré de connaissance : bon, moyen, médiocre pour ce qui est de la langue parlée, lue et écrite"
+
+dictLabelSpanish.Add "Employment Record", "Expérience professionnelle"
+
+dictLabelSpanish.Add "Starting with present position, list in reverse order every employment held by staff member since graduation, giving for each employment (see format here below): dates of employment, name of employing organization, positions held",
+"En commençant par son poste actuel, donner la liste par ordre chronologique inverse de tous les emplois exercés par l’employé depuis la fin de ses études. Pour chaque emploi (voir le formulaire ci-dessous), donner les dates, le nom de l’employeur et le poste occupé."
+
+dictLabelSpanish.Add "Employer", "Employeur"
+
+dictLabelSpanish.Add "Position held", "Poste"
+
+dictLabelSpanish.Add "Activities performed", "Activités réalisées"
+
+dictLabelSpanish.Add "Description of duties", "Description des tâches assignées"
+
+dictLabelSpanish.Add "Detailed Tasks Assigned", "Détail des tâches exécutées"
+
+dictLabelSpanish.Add "List all tasks to be performed under this assignment", "Indiquer toutes les tâches à exécuter dans le cadre de cette proposition"
+
+dictLabelSpanish.Add "Work Undertaken that Best Illustrates Capability to Handle the Tasks Assigned", "Expérience de l’employé qui illustre le mieux sa compétence"
+
+dictLabelSpanish.Add "Among the assignments in which the staffs have been involved, indicate the following information for those assignments that best illustrate staff capability to handle the tasks listed under point 11.",
+"Donner notamment les informations suivantes qui illustrent au mieux la compétence professionnelle de l’employé pour les tâches mentionnées au point 11"
+
+dictLabelSpanish.Add "Certification", "Attestation"
+
+dictLabelSpanish.Add "I, the undersigned, certify that to the best of my knowledge and belief, this CV correctly describes me, my qualifications, and my experience.  I understand that any wilful misstatement described herein may lead to my disqualification or dismissal, if engaged.",
+"Je, soussigné, certifie, en toute conscience, que les renseignements ci-dessus rendent fidèlement compte de ma situation, de mes qualifications et de mon expérience. J’accepte que toute déclaration volontairement erronée peut entraîner mon exclusion, ou mon renvoi si j’ai été engagé."
+
+dictLabelSpanish.Add "Signature of staff member or authorized representative of the staff", "Signature de l’employé et du représentant habilité du consultant"
+
+dictLabelSpanish.Add "Day/Month/Year", "Jour/mois/année"
+
+dictLabelSpanish.Add "Full name of authorized representative", "Nom du représentant habilité"
+
+%>

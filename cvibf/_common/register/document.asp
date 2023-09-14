@@ -1,0 +1,146 @@
+<!--#include virtual="/_template/asp.header.nocache.asp"-->
+<!--#include file="../_data/datMonth.asp"-->
+<!--#include file="../_class/document.asp"-->
+<!--#include file="../../_fnc_date.asp"-->
+<!--#include file="../../../_common/_grid/document_list.asp"-->
+<%
+If sApplicationName<>"expert" Then
+	CheckUserLogin sScriptFullNameAsParams
+End If
+CheckExpertID
+%>
+<!--#include file="../expProfile.asp"-->
+<%
+Dim objDocument, sDocumentUid
+Set objDocument = New CDocument
+sDocumentUid = Request.QueryString("document")
+
+If sAction="delete" Then
+	objDocument.DeleteByUid sDocumentUid
+	Response.Redirect "register6.asp"
+End If
+
+' Save document on submit
+Dim objUploadForm
+Set objUploadForm = Server.CreateObject("softartisans.fileup")
+If objUploadForm.ContentDisposition = "form-data" Then
+	If objUploadForm.TotalBytes > 5120000  Then 
+		ShowMessageStart "error", 580 %>
+			Your file is too big.</b><br>Please try to keep the size of the file within the allowed 5 Mb. Click back and try again.
+		<% ShowMessageEnd 
+	Else
+		objDocument.SaveForm iExpertID, objUploadForm.Form
+		Response.Redirect "register6.asp"
+	End If
+End If
+
+' Get document details
+If Len(sDocumentUid)>36 Then
+	objDocument.LoadDocumentDetailsByUid(sDocumentUid)
+End If
+
+LoadExpertProfile objExpertDB.DatabaseCode, iExpertID
+%>  
+<!--#include virtual="/_template/html.header.start.asp"-->
+<script type="text/javascript" src="/_scripts/js/main.js"></script>
+<script type="text/javascript">
+<!-- 
+function validateForm() {
+	var f=document.forms[0];
+	if (!(f)) {
+		return false; 
+	}
+	if (!checkTextFieldValue(f.document_title, "", "Please fill in the document title.", 1)) { return false }
+	<% If objDocument.ID>0 Then %>
+	<% Else %>
+	if (!checkTextFieldValue(f.attachment, "", "Please attach a document.", 1)) { return false }
+	<% End If %>
+	f.submit();
+}
+
+function deleteDocument(expert, document) {
+	if (confirm('Are you sure you want to delete this document?')) {
+		location.replace('<% =sScriptFileName & AddUrlParams(sParams, "act=delete") %>');
+	}
+}
+-->
+</script>
+</head>
+<body>
+
+
+<div id="holder">
+
+	<!-- header -->
+	<!--#include virtual="/_template/page.header.asp"-->
+
+	<!-- content -->
+	<div id="content" class="searchform">
+	<% 
+	'ShowRegistrationProgressBar "CV", 8 
+	%>
+
+	<form enctype="multipart/form-data" method="post" action="<% =sScriptFullName %>" onsubmit="validateForm(); return false;">
+	<input type="hidden" name="expert" value="<% =sExpertUID %>">
+	<input type="hidden" name="document" value="<% =objDocument.UID %>">
+		<div class="box search blue">
+		<h3><span class="left">&nbsp;</span><span class="right">&nbsp;</span><% =GetLabel(sCvLanguage, "Upload document") %></h3>
+		<table class="search_form" width="100%" cellspacing=0 cellpadding=0 border=0>
+		<tr>
+		<td class="field splitter"><% = GetLabel(sCvLanguage, "Expert") %></td>
+		<td class="value blue"><input type="text" name="exp_name_2" readOnly disabled size=31 style="width:320px;" maxlength=255 value="<% =sLastName & ", " & sFirstName & " " & sMiddleName %> "></td>
+		</tr>
+		<tr>
+		<td class="field splitter"><label for="document_title"><% = GetLabel(sCvLanguage, "Document title") %></label></td>
+		<td class="value blue"><input type="text" style="width:320px;" name="document_title" value="<% =objDocument.Title %>">&nbsp;&nbsp;<span class="fcmp">*</span></td>
+		</tr>
+		<tr>
+		<td class="field splitter"><label for="document_title"><% = GetLabel(sCvLanguage, "Document type") %></label></td>
+		<td class="value blue"><input type="text" style="width:320px;" name="document_type" value="<% =objDocument.Type_ %>"></td>
+		</tr>
+		<tr>
+		<td class="field splitter"><label for="document_title"><% = GetLabel(sCvLanguage, "Attachment") %></label></td>
+		<td class="value blue">
+		<p style="margin:2px 12px">
+		<% If objDocument.ID>0 Then %>
+			<% ShowDocument objDocument %>
+			<% If IsDate(objDocument.DateCreated) Then %>
+				<small>&nbsp;&nbsp;(Document uploaded on <% =ConvertDateForText(objDocument.DateCreated, "&nbsp;", "DDMonYYYY HHMM") %>)</small>
+			<% End If %>
+			<br/><img src="../image/x.gif" width="1" height="5"><br/><small>To update this document please attach a new file hereafter:</small><br/>
+		<% Else %>
+			<small>Please click browse and attach a document hereafter:</small><br/>
+		<% End If %>
+		</p>&nbsp;&nbsp;<input type="file" style="width:317px;" name="attachment">
+		<% If objDocument.ID>0 Then %>
+		<% Else %>
+		&nbsp;&nbsp;<span class="fcmp">*</span>
+		<% End If %>
+		</td>
+		</tr>
+		<tr style="height: 4pt;">
+		<td class="field splitter"></td>
+		<td class="value blue"></td>
+		</tr>
+		</table>
+		</div>
+
+		<div class="spacebottom">
+		<% If objDocument.ID>0 Then %>
+		<input type="image" class="button first" src="<% =sHomePath %>image/bte_docupdate.gif" name="Update document" alt="Update document" border=0 align="left">
+		<a href="javascript:deleteDocument(<% =iExpertID %>, '<% =objDocument.UID %>')"><img  class="button" src="<% =sHomePath %>image/bte_docdelete.gif" name="Delete document" alt="Delete document" border=0 hspace=60>
+		<% Else %>
+		<input type="image" class="button first" src="<% =sHomePath %>image/bte_docsave.gif" name="Save document" alt="Save document" border=0>
+		<% End If %>
+		</div>
+		</form>
+
+	</div>
+</div>
+
+<!-- footer -->
+<!--#include virtual="/_template/page.footer.asp"-->
+
+<% CloseDBConnection %>
+</body>
+<!--#include virtual="/_template/html.footer.asp"-->

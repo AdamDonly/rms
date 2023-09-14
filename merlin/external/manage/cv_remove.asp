@@ -1,0 +1,1 @@
+<!--#include file="../../backoffice/manage/cv_remove.asp"-->

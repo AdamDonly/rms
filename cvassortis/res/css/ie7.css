@@ -1,0 +1,235 @@
+/* IE7 CSS */
+#menu { 
+    zoom: 1; /*offre le layout à un élément (*)*/
+    display: inline;
+}
+#login_bar { 
+    zoom: 1; /*offre le layout à un élément (*)*/
+    display: inline;
+}
+#login_bar_login_button,.one_two, .one_two_last,.filter_table_object_wrapper ul li .filter_table_checkbox input, .filter_table_main_obj .filter_table_checkbox input, .filter_button_section .cgu_section input ,.white_checkbox input,#login_bar_input_part,.one_four_last,.three_four,.generic_table_content ul li div,.generic_table_content ul li>p, #login_bar_button_wrapper,.filter_table_object_wrapper ,.filter_table_filters,#login_input_middle,.blue_box_button_middle,.button_area p,.page_content,.sidebar,.dropcap,.button_area,#free_text_label,.job_detail_board ul li p,.job_detail_board ul li div,.job_detail_board ul ,#img_div_jd{ 
+    zoom: 1; /*offre le layout à un élément (*)*/
+    display: inline;
+}
+#free_text_label,#language_label,#location_label,#sectors_label,.under_options_board label{
+    vertical-align: top!important;
+}
+.nbr_record{position:relative; bottom: 8px;}
+.option_label_text{position:relative; top: -1px;}
+.button_area p{
+    padding-left:18px;
+    margin-left:0px;
+}
+.search_button{position:relative; bottom:3px;}
+.checkbox_option_board input {
+display: inline-block!important;
+}
+.checkbox_option_board span {
+display:none;
+}
+#login_bar_left_button,#login_bar_left
+{
+    position: relative; left:4px;z-index: 10;
+}
+#login_bar_right_button,#login_bar_right
+{
+    position: relative; right:0px;z-index: 10;
+}
+#login_bar input
+{
+    padding:0; margin:0; position:relative; top:7px;
+
+}
+#login_bar_right
+{
+    margin-right: 7px;
+}
+#login_bar_button_wrapper {
+    margin-right: -1px;
+    z-index: 3;
+    cursor: pointer;
+    margin-top: 1px;
+}
+.board_company_logo{padding: 13px 13px;}
+.oneByOne_item .ie7_edit{width: 210px;}
+#jobs_opportunities_button_wrapper h2{ width: 95%; margin-left:0px;}
+.home_servies_title
+{
+    margin-left:4px;
+}
+.home_servies_title_expert,.home_servies_title_company
+{
+    clear: none;
+}
+.sub_wrapper{margin-top:25px;}
+.bottom_about,.contact_infos,subscribe_block{float:left;position:relative;margin-right:4px}
+.contact_infos{}
+.footer h3 div{display: none;}
+.sidebar_company ul li div{
+width: 239px;
+}
+.page_content ul .oneline
+{
+    background-position-y: 2px;
+    margin-bottom: 12px;
+    height:25px;
+}
+.images_right
+{
+    margin-bottom: 0px;
+}
+.open_job_board tfoot a{position: relative; bottom: 3px;}
+.table_wrapper
+{
+    padding: 40px 20px;
+border: 1px solid #D8D8D8;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: #666 0px 1px 3px;
+-moz-box-shadow: #666 0px 1px 1px;
+box-shadow: #666 0px 1px 1px;
+background: #d9d9d9;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f7f7f7), to(#e6e6e6));
+background: -webkit-linear-gradient(#f7f7f7, #e6e6e6);
+background: -moz-linear-gradient(#f7f7f7, #e6e6e6);
+background: -ms-linear-gradient(#f7f7f7, #e6e6e6);
+background: -o-linear-gradient(#f7f7f7, #e6e6e6);
+background: linear-gradient(#f7f7f7, #e6e6e6);
+-pie-background: linear-gradient(#f7f7f7, #e6e6e6);
+behavior: url(/res/pie/PIE.asp);
+
+}
+.table_wrapper
+{
+    padding: 40px 20px 25px 20px;
+}
+.job_detail_table_bottom_button {
+width: 100%;
+}
+.job_detail_return_button{float:left;}
+.job_detail_apply_button
+{
+float:right;
+}
+.filter_table_header,.block_head{
+    -webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+.generic_form_table td{
+
+    }
+    .generic_form_table .last td{}
+    
+    .red_button_smaller
+{
+     background-image: url(../images/styles/red_button_150.png);
+    width: 150px!important;
+    height: 42px!important;
+    font-weight: bold!important;
+    background-position:center top; 
+}
+    .red_button_smaller:hover
+{
+     background-image: url(../images/styles/red_button_150.png);
+    font-weight: normal!important;
+    background-position:center -42px; 
+        width: 150px!important;
+    height: 42px!important;
+}
+    .red_button_smaller span
+    {
+        font-weight: bold!important;
+        top:9px!important;
+        left:0px;
+    }
+    .red_button span
+    {
+       
+    }
+.filter_table_main_obj{}
+.filter_table_object_wrapper{position:relative; left:4px}
+.subscribe_block p textarea {
+font-family: arial!important;
+}
+.subscribe_block p input, .subscribe_block p textarea {height:20px;padding-top:7px;}.subscribe_block p textarea {height:35px;}
+.generic_form_table tr .filter_title {overflow: none; border-collapse: inherit;}
+
+.under_options_board {
+width: 55%; top:13px;
+}
+.options_board {
+margin-bottom: 27px;
+}
+
+.generic_form_table tr .filter_inputs input[type="text"]
+{
+    padding: 5px;
+    height: 15px;
+}
+.inside_euro
+{
+    bottom: 15px;
+}
+.generic_form_table tr .filter_inputs select
+{
+    height: 25px;
+}
+.generic_table_content ul li div {
+width: 72%;}
+.generic_table_content table {
+margin-bottom: 0;
+
+}
+.filter_table_header .red_button {
+
+bottom: 24px;
+}
+.white_checkbox input {
+display: inline-block; margin-right: 10px;
+}
+.white_checkbox input:checked + span {
+display:none;
+}
+.white_checkbox span 
+{
+    display:none;
+}
+.filter_table_header h3 
+{
+    top:8px;
+}
+
+.filter_table_main_obj .filter_table_checkbox span,.filter_table_object_wrapper ul li .filter_table_checkbox span ,.filter_button_section .cgu_section span{
+display:none;
+}
+.filter_table_object_wrapper ul li .filter_table_checkbox input, .filter_table_main_obj .filter_table_checkbox input, .filter_button_section .cgu_section input {
+display: inline-block;
+vertical-align: top;
+position:relative; 
+}
+.generic_form_table tr .filter_inputs input[type="text"], .generic_form_table tr .filter_inputs input[type="password"], .generic_form_table tr .filter_inputs select, .generic_form_table tr .filter_inputs textarea, .generic_form_table tr .filter_inputs input[type="file"] {
+    width: 90%;
+}
+.require_field
+{
+    color: #D55642!important;
+    font-weight: bold;
+    position: relative;
+    right: 7px;
+    bottom: 15px;
+    font-size: 16px;
+}
+select+.require_field
+{
+    left:7px;
+}
+textarea+.require_field
+{
+    top: 9px;
+}
+
+.filter_table_object_wrapper UL LI INPUT {
+    margin-top: -4px;
+}

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<emailTemplate>
+	<sender>info@icaworld.net</sender>
+	<recipients>
+		<recipient>fassbender@icaworld.net</recipient>
+	</recipients>
+	<subject>ICA Contact Form: A new message was received</subject>
+	<body>
+		<style type="text/css">
+			* { font: 10pt Arial, Sans-Serif; color: #000000; }
+			a { color: #FF3333; }
+			a:hover { color: #FF0000; }
+		</style>
+
+		<p>A new ICA Contact form request has been submitted. Here are the details:</p>
+
+		<p>Date and time: [#Datetime#]</p>
+		
+		<p>Name: [#Name#]</p>
+
+		<p>Email: [#Email#]</p>
+
+		<p>Subject: [#Subject#]</p>
+		<p>Message:</p>
+		<p>[#Message#]</p>
+
+		<br />
+		<br />
+		<br />
+
+		<p>ICA Website</p>
+	</body>
+</emailTemplate>
