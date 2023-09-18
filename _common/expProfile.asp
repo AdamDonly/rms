@@ -398,4 +398,16 @@ Sub CopyExpertCvLanguage(AInitialLanguageCvID, ANewLanguageCvID)
 		Array(, adInteger, , ANewLanguageCvID)))
 	Set objTempRs = Nothing
 End Sub
+
+Function GetAdministratorsEmails()
+	GetAdministratorsEmails = ""
+
+	Set objTempRs = GetDataRecordsetSP("usp_UsersGetInternalAdministratorsEmailSelect", Array())
+
+	If Not objTempRs.Eof Then 
+		GetAdministratorsEmails = objTempRs(0)
+	End If 
+
+	Set objTempRs = Nothing
+End Function
 %>

@@ -22,8 +22,19 @@ sTempParams=ReplaceUrlParams(sTempParams, "srch_orderby")
 		<% If iUserID>0 Then %>
 		<table width="100%" cellpadding=0 cellspacing=0 border=0><tr>
 		<td width="95%" valign="bottom"><p class="txt">&nbsp;</p></td>
-		<% If sScriptFileName<>"default.asp" and sScriptFileName<>"register.asp" Then %>
-			<td align="right" valign="bottom"><p class="txt"><img src="<%=sApplicationHomePath%>image/x.gif" width=12 height=13 hspace=15 vspace=0><a href="<% =sApplicationHomePath %>"><b>Homepage</b></a></p></td>
+		<% If sApplicationName <> "expert" Then %>
+			<% If sScriptFileName<>"default.asp" and sScriptFileName<>"register.asp" Then %>
+				<td align="right" valign="bottom"><p class="txt"><img src="<%=sApplicationHomePath%>image/x.gif" width=12 height=13 hspace=15 vspace=0><a href="<% =sApplicationHomePath %>"><b>Homepage</b></a></p></td>
+			<% End If %>
+		<% Else %>
+			<td align="right" valign="bottom">
+				<p class="txt">
+					<img src="<%=sApplicationHomePath%>image/x.gif" width=12 height=13 hspace=15 vspace=0 />
+					<a href="<%= sApplicationHomePath %>">
+						<b>Homepage</b>
+					</a>
+				</p>
+			</td>
 		<% End If %>
 		<td align="right" valign="bottom"><p class="txt"><img src="<%=sHomePath%>image/x.gif" width=1 height=13 hspace=15 vspace=0><a href="<%=sApplicationHomePath & "logout.asp" & sTempParams %>"><b>Logout<b></a></p></td>
 		<td><img src="<%=sHomePath%>image/x.gif" width=14 height=1></td>
