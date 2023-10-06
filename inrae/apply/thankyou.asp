@@ -29,14 +29,24 @@ bEmailAlreadySent=False
 </head>
 
 <body bgcolor="#FFFFFF" topmargin=0 leftmargin=0  marginheight=0 marginwidth=0>
-<% ShowTopMenu %>
+	<% ShowTopMenu %>
 	<%
-	If bEmailAlreadySent=False Then
 		LoadExpertProfile(iExpertID)
-
+		
+		If bEmailExpertAccountSent = False Then
+	
 		PrepareEmailTemplate "emlExpertRegisteredCV.htm", ";;sExpertFullName=" & sFullName
 		SendEmail sEmailCvipSystem, sUserEmail, sEmailSubject, sEmailBody, "info"
 		
+		Dim sAdministratorEmails, sLink 
+		sAdministratorEmails = GetAdministratorsEmails()
+		sLink = "http://cvip.assortis.com" & sHomePath & "/backoffice/register/register6.asp?id=" & iExpertID
+		
+		
+		PrepareEmailTemplate "emlExpertRegisteredCompanyNotification.htm", ";;iExpertID=" & CStr(iExpertID) & ";;sExpertFullName=" & sFullName & ";;sEmail=" & sUserEmail & ";;sLink=" & sLink
+		CreateEmailManagerRecord sEmailCvipSystem, sAdministratorEmails, sEmailSubject, sEmailBody
+		
+		SaveExpertAccountEmailSent iExpertID, 1 	
 	End If
 	
 	ShowMessageStart "info", 550 %>

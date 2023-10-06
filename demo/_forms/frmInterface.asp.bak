@@ -180,24 +180,24 @@ End Sub
 
 Sub ShowInputFormHeader(iFormWidth, sFormTitle)
 %>
-	<table width="<%=iFormWidth%>" cellspacing="0" cellpadding="0" border="0" align="center">
-	<tr height=1><td width=1 bgcolor="#97CAFB"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td>
-	<td width="<%=iFormWidth-2%>" bgcolor="#97CAFB"><img src="<%=sHomePath%>image/x.gif" width="<%=iFormWidth-2%>" height=1></td>
-	<td width=1 bgcolor="#153B80"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td></tr>
+	<table width="<%=iFormWidth%>" cellspacing="0" cellpadding="0" border="0"<% If sScriptFileName <> "exp_search.asp" Then %> align="center"<% End If %>>
+	<tr height=1><td width=1 bgcolor="#97CAFB"></td>
+	<td width="<%=iFormWidth-2%>" bgcolor="#97CAFB"></td>
+	<td width=1 bgcolor="#153B80"></td></tr>
 
 	<tr height=18><td width=1 bgcolor="#97CAFB"><img src="<%=sHomePath%>image/x.gif" width=1 height=18></td>
-	<td width="<%=iFormWidth-2%>" bgcolor="#3366CC"><img src="<%=sHomePath%>image/x.gif" width="<%=iFormWidth-2%>" height=1><br><p class="fttl"><img src="<%=sHomePath%>image/<% =imgFormBullet %>" width=7 height=7 align=left vspace=3 hspace=8><%=sFormTitle%></p></td>
+	<td width="<%=iFormWidth-2%>" bgcolor="#3366CC"><p class="fttl"><img src="<%=sHomePath%>image/<% =imgFormBullet %>" width=7 height=7 align=left vspace=3 hspace=8><%=sFormTitle%></p></td>
 	<td width=1 bgcolor="#153B80"><img src="<%=sHomePath%>image/x.gif" width=1 height=18></td></tr>
 
-	<tr height=1><td width=1 bgcolor="#97CAFB"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td>
-	<td width="<%=iFormWidth-2%>" bgcolor="#153B80"><img src="<%=sHomePath%>image/x.gif" width="<%=iFormWidth-2%>" height=1></td>
-	<td width=1 bgcolor="#153B80"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td></tr>
+	<tr height=1><td width=1 bgcolor="#97CAFB"></td>
+	<td width="<%=iFormWidth-2%>" bgcolor="#153B80"></td>
+	<td width=1 bgcolor="#153B80"></td></tr>
 
-	<tr height=1><td width=1 bgcolor="#FFFFFF"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td>
-	<td width="<%=iFormWidth-2%>" bgcolor="#FFFFFF"><img src="<%=sHomePath%>image/x.gif" width="<%=iFormWidth-2%>" height=1></td>
-	<td width=1 bgcolor="#FFFFFF"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td></tr>
+	<tr height=1><td width=1 bgcolor="#FFFFFF"></td>
+	<td width="<%=iFormWidth-2%>" bgcolor="#FFFFFF"></td>
+	<td width=1 bgcolor="#FFFFFF"></td></tr>
 
-	<tr><td width=1 bgcolor="#D1E7F7"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td>
+	<tr><td width=1 bgcolor="#D1E7F7"></td>
 	<td width="<%=iFormWidth-2%>" bgcolor="#97CAFB" valign="top">
 		<table width="100%" cellspacing=0 cellpadding=0 border=0>
 <%
@@ -235,14 +235,14 @@ iLeftColumnWidth=Round(iFormWidth*0.34)
 	</td>
 	<td width=1 bgcolor="#4694E1"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td></tr>
 
-	<tr height=1><td width=1 bgcolor="#D1E7F7"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td>
-	<td width=<%=iFormWidth-2%> bgcolor="#3366CC"><img src="<%=sHomePath%>image/x.gif" width=<%=iFormWidth-2%> height=1></td>
-	<td width=1 bgcolor="#4694E1"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td></tr>
-	<tr height=1><td width=1 bgcolor="#FFFFFF"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td>
-	<td width=<%=iFormWidth-2%> bgcolor="#FFFFFF"><img src="<%=sHomePath%>image/x.gif" width=<%=iFormWidth-2%> height=1></td>
-	<td width=1 bgcolor="#FFFFFF"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td></tr>
+	<tr height=1><td width=1 bgcolor="#D1E7F7"></td>
+	<td width=<%=iFormWidth-2%> bgcolor="#3366CC"></td>
+	<td width=1 bgcolor="#4694E1"></td></tr>
+	<tr height=1><td width=1 bgcolor="#FFFFFF"></td>
+	<td width=<%=iFormWidth-2%> bgcolor="#FFFFFF"></td>
+	<td width=1 bgcolor="#FFFFFF"></td></tr>
 
-	<tr><td width=1 bgcolor="#D1E7F7"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td>
+	<tr><td width=1 bgcolor="#D1E7F7"></td>
 	<td width=<%=iFormWidth-2%> bgcolor="#97CAFB" valign="top">
 		<table border=0 cellspacing=0 cellpadding=0 width="100%">
 		<tr height=25><td width=<%=iLeftColumnWidth%>>&nbsp;</td>
@@ -256,14 +256,14 @@ Sub ShowInputFormFooter(iFormWidth)
 %>
 		</table>
 	</td>
-	<td width=1 bgcolor="#4694E1"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td></tr>
+	<td width=1 bgcolor="#4694E1"></td></tr>
 
-	<tr height=1><td width=1 bgcolor="#D1E7F7"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td>
-	<td width=348 bgcolor="#3366CC"><img src="<%=sHomePath%>image/x.gif" width=348 height=1></td>
-	<td width=1 bgcolor="#4694E1"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td></tr>
-	<tr height=1><td width=1 bgcolor="#FFFFFF"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td>
-	<td width=348 bgcolor="#FFFFFF"><img src="<%=sHomePath%>image/x.gif" width=348 height=1></td>
-	<td width=1 bgcolor="#FFFFFF"><img src="<%=sHomePath%>image/x.gif" width=1 height=1></td></tr>
+	<tr height=1><td width=1 bgcolor="#D1E7F7"></td>
+	<td width=348 bgcolor="#3366CC"></td>
+	<td width=1 bgcolor="#4694E1"></td></tr>
+	<tr height=1><td width=1 bgcolor="#FFFFFF"></td>
+	<td width=348 bgcolor="#FFFFFF"></td>
+	<td width=1 bgcolor="#FFFFFF"></td></tr>
 	</table>
 <%
 End Sub

@@ -84,4 +84,21 @@ Dim arrParams, sParamName, sParamValue, i, iPos1, iPos2, iResultCode
 	End If
 End Function
 
+Function CreateEmailManagerRecord(sFrom, sTo, sSubject, sBody)
+    If Len(sSubject) < 1 Then
+        sSubject = "Assortis"
+    End If
+
+    objTempRs = GetDataOutParamsSP("usp_EmailAddEmailToQueueInsert", Array( _
+        Array(, adInteger, , 29), _ 
+        Array(, adVarChar, 255, sTo), _
+        Array(, adVarChar, 255, sFrom), _
+        Array(, adVarChar, 255, sSubject), _
+        Array(, adVarWChar,  50000, sBody)), _
+        Array( Array(, adInteger)))
+
+    Set objTempRs = Nothing
+
+End Function
+
 %>

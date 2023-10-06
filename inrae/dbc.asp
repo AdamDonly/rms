@@ -33,6 +33,9 @@ Dim sApplicationName, sApplicationHomePath
 If InStr(LCase(sScriptFullName), "/apply/")>0 Then 
 	sApplicationName="expert"
 	sApplicationHomePath=sHomePath & "apply/"
+ElseIf InStr(LCase(sScriptFullName), "/expert/")>0 Then 
+	sApplicationName="expert"
+	sApplicationHomePath=sHomePath & "expert/"
 ElseIf InStr(LCase(sScriptFullName), "/external/")>0 Then 
 	sApplicationName="external"
 	sApplicationHomePath=sHomePath & "external/"
@@ -49,6 +52,17 @@ End If
 %>
 <!--#include file="_email.asp"-->
 <!--#include file="fnc_email.asp"-->
+
+<% 
+	Sub DebugMessageLine(str)
+		Response.Write("[Debug]:" & str & "<br>")
+	End Sub
+
+	Sub DebugMessageEnd(str)
+		Response.Write("[DEBUG]: " & str)
+		Response.End
+	End Sub
+%>
 
 <%
 If InStr(sScriptServerName, "cvip2")>0 And InStr(sScriptFileName, "save")=0 Then Response.Write "CVIP2"
