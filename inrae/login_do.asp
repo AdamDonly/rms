@@ -70,8 +70,12 @@ If sUserLogin>"" And sUserPassword>"" Then
 			Response.Redirect sHomePath & "denied.asp"
 		End If
 		
-		sParams=ReplaceUrlParams(sParams, "url")
-		Response.Redirect sUrl
+		If sUserType = "Experts" Then 
+			Response.Redirect sApplicationHomePath & "/expert/default.asp"
+		Else 
+			sParams=ReplaceUrlParams(sParams, "url")
+			Response.Redirect sUrl
+		End If
 	End If
 Else
 	Response.Redirect sApplicationHomePath & "default.asp"

@@ -33,6 +33,9 @@ Dim sApplicationName, sApplicationHomePath
 If InStr(LCase(sScriptFullName), "/apply/")>0 Then 
 	sApplicationName="expert"
 	sApplicationHomePath=sHomePath & "apply/"
+ElseIf InStr(LCase(sScriptFullName), "/expert/")>0 Then 
+	sApplicationName="expert"
+	sApplicationHomePath=sHomePath & "expert/"
 ElseIf InStr(LCase(sScriptFullName), "/external/")>0 Then 
 	sApplicationName="external"
 	sApplicationHomePath=sHomePath & "external/"

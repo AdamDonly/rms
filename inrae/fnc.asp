@@ -979,5 +979,12 @@ Dim strTemp
 	End If
 	CutStringInMenu = strTemp
 End Function 
+
+Sub CheckIfExpertAndExpertIdIsRequestId()
+	If sUserType = "expert" And Request.QueryString("id") <> "" And iExpertID <> CInt(Request.QueryString("id")) Then
+		sParams=ReplaceUrlParams(sParams, "id=" & iExpertID)
+		Response.Redirect sApplicationHomePath & "/expert/" & sScriptFileName & sParams
+	End If 
+End Sub
 %>
 
