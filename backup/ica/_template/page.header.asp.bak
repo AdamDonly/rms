@@ -1,0 +1,118 @@
+<%
+sTempParams=ReplaceUrlParams(sParams, "url")
+sTempParams=ReplaceUrlParams(sTempParams, "id")
+sTempParams=ReplaceUrlParams(sTempParams, "idproject")
+sTempParams=ReplaceUrlParams(sTempParams, "idexpert")
+sTempParams=ReplaceUrlParams(sTempParams, "t")
+
+Dim assortisButtonUrl, assortisLogoutUrl, icaLogoutUrl, icaExpertsLogoutUrl
+assortisButtonUrl = "http://www.assortis.com/login.asp?url=/en/members/bsc_list.asp&token=" & sAsortisLoginToken
+assortisLogoutUrl = "http://www.assortis.com/logout4ica.asp"
+icaLogoutUrl = "http://" & sIcaServer & "/intranet/logout"
+icaExpertsLogoutUrl = "http://experts.icaworld.net/logout.asp"
+
+' render header:
+%>
+<h1 class="off_jws">ICANET</h1>
+<hr/>
+
+<div id="header">
+
+	<div class="headerlink" onclick="location.href='http://<% =sIcaServer %>/Intranet/News'">&nbsp;</div>
+
+	<div class="user-quick-topmenu floatRight lgn alignRight">
+		<p class="off_jws"><strong>User:</strong></p>
+		<b><% =sUserFullName %></b>&nbsp;
+		<span style="color:#999999;">[<% =sUserCompany %>]</span>
+
+		<p class="off_jws"><strong>Quick navigation</strong></p>
+		<ul id="quickMenu">
+			<li class="lgn">&nbsp;|&nbsp;<a href="http://<% =sIcaServer %>/" class="icapublic-link">ICA website</a>&nbsp;|&nbsp;</li>
+			<li><a href="https://twitter.com/ICAnetWorld" target="_blank" title="@ICAnetWorld on Twitter" class="twitter-link"></a>&nbsp;|&nbsp;</li>
+			<li><a href="https://www.linkedin.com/company/international-consulting-alliance-ica-" target="_blank" title="ICA on LinkedIn" class="linkedin-link"></a>&nbsp;|&nbsp;</li>
+			<li><a href="http://<% =sIcaServer %>/Intranet/About">about</a>&nbsp;|&nbsp;</li>
+			<li><a href="http://<% =sIcaServer %>/Intranet/Contact">contact</a>&nbsp;|&nbsp;</li>
+			<li><a href="http://<% =sIcaServer %>/Intranet/MyAccount">my profile</a>&nbsp;|&nbsp;</li>
+			<li><a id="IcaLogOutBtn" href="javascript:void(0)">logout</a></li>
+		</ul>
+	</div>
+	<br class="clear"/>
+	<script type="text/javascript">
+		$(function () {
+			$('#IcaLogOutBtn').click(function () {
+				console.log("<%=assortisLogoutUrl%>?exp=<%=Server.URLEncode(icaExpertsLogoutUrl) %>&ica=<%=Server.URLEncode(icaLogoutUrl) %>");
+				document.location = "<%=assortisLogoutUrl%>?exp=<%=Server.URLEncode(icaExpertsLogoutUrl) %>&ica=<%=Server.URLEncode(icaLogoutUrl) %>";
+			});
+		});
+	</script>
+
+	<% If Not bIsMyCV Then %>
+		<div class="topMenu floatRight">
+			<p class="off_jws"><strong>Main menu</strong></p>
+			<ul id="mainMenu" class="floatRight">
+				<li class="first"><a href="http://<% =sIcaServer %>/Intranet/News" title="NEWS">NEWS</a></li>
+				<li><a href="http://<% =sIcaServer %>/Intranet/my_projects" title="Projects"><% If (iUserCompanyRoleID = 7) Then %>MY <% End If %>PROJECTS</a></li>
+				<%
+				If (iUserCompanyRoleID = 7) Then
+					%><li><a href="http://<% =sIcaServer %>/Intranet/myvacancies" title="My Vacancies">MY VACANCIES</a></li>
+					<%
+				Else
+					%><li><a href="http://<% =sIcaServer %>/Intranet/myvacancies" title="Vacancies">VACANCIES</a></li>
+					<%
+				End If %>
+				<li class="home"><a href="http://<% If sIcaServerType<>"www." Then Response.Write sIcaServerType %>experts.icaworld.net/" title="Experts">EXPERTS</a></li>
+				<%
+				If (iUserCompanyRoleID <> 7) Then 
+					%><li><a href="http://<% =sIcaServer %>/Intranet/ICAShowcase" title="ICA World">PARTNERS</a></li>
+					<li><a href="http://<% =sIcaServer %>/hubs" title="ICA World">HUBS</a></li>
+					<li><a href="http://<% =sIcaServer %>/Intranet/ICATools" title="Tools">TOOLS</a></li>
+					<%
+				End If
+				If (iUserCompanyRoleID=2 Or iUserCompanyRoleID=3 Or iUserCompanyRoleID=4 Or iUserCompanyRoleID=5) Then 
+					%><li><a href="http://<% =sIcaServer %>/Intranet/Dashboard" title="Dashboard">DASHBOARD</a></li>
+					<%
+				End If
+				If (iUserCompanyRoleID <> 7) Then 
+					%><li><a href="<% =assortisButtonUrl %>" title="ASSORTIS" class="btn-assortis"></a></li>
+					<%
+				End If %>
+			</ul>
+		</div>
+		<br class="clr h0" />
+		<div class="topSubMenu floatRight">
+			<ul id="topSubTabsNav" class="topSubNav">
+				<% If (iUserAccessMaskExperts And aUserAccessMaskView) Then %>
+				<li class="first <% If InStr(1, sScriptFullName, "search.asp", 1)>0 Or InStr(1, sScriptFullName, "exp_results.asp", 1)>0 Then Response.Write "active" %>"><a href="http://<% If sIcaServerType<>"www." Then Response.Write sIcaServerType %>experts.icaworld.net/backoffice/search/exp_search.asp">Search</a></li>
+				<% End If %>
+				<% If (iUserAccessMaskExperts And aUserAccessMaskAdd) Then %>
+				<li class="<% If InStr(1, sScriptFullName, "register.asp", 1)>0 Then Response.Write "active" %>"><a href="http://<% If sIcaServerType<>"www." Then Response.Write sIcaServerType %>experts.icaworld.net/backoffice/register/register.asp">Register expert</a></li>
+				<% End If %>
+				<% If (iUserAccessMaskExperts And aUserAccessMaskEdit) Then %>
+				<li class="<% If InStr(1, sScriptFullName, "manage.asp", 1)>0 OR InStr(1, sScriptFullName, "cv_list.asp", 1)>0 Then Response.Write "active" %>"><a href="http://<% If sIcaServerType<>"www." Then Response.Write sIcaServerType %>experts.icaworld.net/backoffice/manage.asp">Manage our database</a></li>
+				<% End If %>
+				<% If (iUserAccessMaskExperts And aUserAccessMaskView) Then %>
+				<li class="<% If InStr(1, sScriptFullName, "circle_list.asp", 1)>0 Then Response.Write "active" %>"><a href="http://<% If sIcaServerType<>"www." Then Response.Write sIcaServerType %>experts.icaworld.net/backoffice/circle.asp"><img src="/image/ica_circle.gif" width=11 height=11 border=0 hspace=2 >My Experts Circle</a></li>
+				<% End If %>
+			</ul>
+		</div>
+	<% Else %>
+		<div class="topMenu floatRight">
+			<p class="off_jws"><strong>Main menu</strong></p>
+			<ul id="mainMenu" class="floatRight">
+				<li class="first"><a href="http://<% =sIcaServer %>/Intranet/News" title="NEWS">NEWS</a></li>
+				<li><a href="http://<% =sIcaServer %>/Intranet/my_projects" title="Projects">MY PROJECTS</a></li>
+				<li><a href="http://<% =sIcaServer %>/Intranet/MyVacancies" title="Dashboard">MY VACANCIES</a></li>
+				<li class="home"><a href="http://<% If sIcaServerType<>"www." Then Response.Write sIcaServerType %>experts.icaworld.net/" title="Edit my CV">MY CV</a></li>
+				<li><a href="http://<% =sIcaServer %>/hubs" title="Hubs">HUBS</a></li>
+				<li><a href="http://<% =sIcaServer %>/Intranet/ICATools" title="Tools">TOOLS</a></li>
+			</ul>
+		</div>
+		<br class="clr h0">
+	<% End If %>
+<hr/>
+<div class="clr h0"><!--  --></div>
+</div>
+
+<a id="paramsHolder" name="" style="display:none;"></a>
+
+<div id="pageContent"><p class="off_jws"><strong>Page content</strong></p>

@@ -1,0 +1,495 @@
+<%@ LANGUAGE="VBSCRIPT" %>
+<% Option Explicit 
+'--------------------------------------------------------------------
+'
+' Search for Experts
+'
+'--------------------------------------------------------------------
+Response.Expires = 0
+Response.ExpiresAbsolute = Now() - 1
+Response.CacheControl = "no-cache"
+%>
+<!--#include file="../../dbc.asp"-->
+<!--#include file="../../fnc.asp"-->
+<!--#include file="../../fnc_exp.asp"-->
+<!--#include file="../../../_common/_data/en/lib.asp"-->
+<!--#include file="../../_forms/frmInterface.asp"-->
+<!--#include file="../../../_common/_data/datMonth.asp"-->
+<%
+' Remove inactive url params
+sParams=ReplaceUrlParams(sParams, "page")
+sParams=ReplaceUrlParams(sParams, "x")
+sParams=ReplaceUrlParams(sParams, "y")
+sParams=ReplaceUrlParams(sParams, "srch_orderby")
+sParams=ReplaceUrlParams(sParams, "srch_queryadd")
+
+' Check user's access rights
+CheckUserLogin sScriptFullNameAsParams
+
+Dim iMmbAccountStatusExp
+iMmbAccountStatusExp=1
+
+Dim iSearchQueryID, sSearchFullText, sSearchSeniority, j
+Dim iNumberCVsSelected, iNumberCVsDownloaded, iNumberCVsDownloadedFromSelected, iNumberCVsSubscribedFor, iNumberCVsInOptimalPackage, iNumberCVsInNextPackage, iNumberCVsTotalInResult
+
+Dim colExpBorder, colExpNum, colExpTitle, colExpColumn, colExpDetails0, colExpDetails1
+Dim sAvailability, sPreferences, sKeyQualifications
+Dim sSearchExperts, sSearchFirstname, sSearchSurname, sSearchKeywords, sSearchKeywordsType, sSearchDB, bSaveSearchLog
+Dim sSearchNationality, sSearchEduSubject, sSearchNativeLng, sSearchOtherLng
+Dim sSearchSectors, arrSearchSectors, sSearchMainSectors, arrSearchMainSectors
+Dim sSearchCountries, arrSearchCountries, sSearchRegions, arrSearchRegions
+Dim sSearchDonors, arrSearchDonors, sSearchCurrentlyIn, iSearchPastYears, iSearchPastProjects
+Dim sExpertIds, arrExpertIds, iCurrentPage, iTotalRecords, iTotalPages, sSearchKeywordsAdd, sSearchOrderBy
+Dim sSearchAction
+
+Dim iNumberCVsDownloadedToday
+
+Dim iNoticeLimitDownloadedToday
+Dim iStopLimitDownloadedToday
+iNoticeLimitDownloadedToday=10
+iStopLimitDownloadedToday=30
+
+iSearchQueryID=ReplaceIfEmpty(Request.Form("qid"), Request.QueryString("qid"))
+bSaveSearchLog=1
+
+iCurrentPage=Request.QueryString("page")
+If Not IsNumeric(iCurrentPage) or iCurrentPage="" Then
+	iCurrentPage=1
+Else
+	iCurrentPage=CInt(iCurrentPage)
+End If
+
+Dim iProjectID
+If Not (iSearchQueryID>0 And IsNumeric(iSearchQueryID)) Then
+
+	iProjectID=CheckIntegerAndZero(Request.Form("idproject"))
+	sParams=ReplaceUrlParams(sParams, "idproject=" & iProjectID)
+
+	sSearchFullText=""
+	sSearchExperts=Request.QueryString("eid")
+	If sSearchExperts>"" Then
+		sSearchFullText=" </i>expert CVs     "
+	End If
+
+	sSearchFirstname=CheckString(Request.Form("srch_firstname"))
+	sSearchSurname=CheckString(Request.Form("srch_surname"))
+	If Len(sSearchSurname)>=2 And IsNumeric(sSearchSurname) Then
+		sSearchExperts=sSearchSurname
+		sSearchSurname=""
+	End If
+	
+	Dim sSelectedExpertDatabaseCode
+	sSelectedExpertDatabaseCode=""
+	If Len(sSearchSurname)>4 Then 
+		If InStr(sSearchSurname, "-")=4 Then
+			sSelectedExpertDatabaseCode=Left(sSearchSurname, 4)
+			sSearchExperts=CheckIntegerAndZero(Mid(sSearchSurname, 5, Len(sSearchSurname)))
+			sSearchSurname=""
+
+			Set objExpertDB = objExpertDBList.Find(sSelectedExpertDatabaseCode, "DatabaseCode")
+			sSearchDatabases = objExpertDB.Database
+		End If
+	End If
+	
+	sSearchKeywords=CheckString(Request.Form("srch_query"))
+	If sSearchKeywords>"" Then sSearchKeywords=Left(sSearchKeywords, 100)
+	sSearchKeywordsHighlight=sSearchKeywords
+	If sSearchKeywords>"" Then
+		sSearchKeywords=Left(sSearchKeywords, 150)
+		sSearchKeywordsType=CheckString(Request.Form("srch_querytype"))
+	End If
+
+	sSearchKeywords=CreateSearchString(sSearchKeywords, sSearchKeywordsType)
+
+	sSearchNationality=CheckString(Request.Form("nationality"))
+	sSearchEduSubject=CheckString(Request.Form("subject"))
+	sSearchCurrentlyIn=CheckInteger(Request.Form("currentlyin"))
+	iSearchPastYears=CheckInteger(Request.Form("pastyears"))
+	If iSearchPastYears=0 Or iSearchPastYears=100 Then iSearchPastYears=Null
+
+	iSearchPastProjects=CheckInteger(Request.Form("pastprojects"))
+	If iSearchPastProjects="" Or iSearchPastProjects=0 Or iSearchPastProjects=100 Then iSearchPastProjects=Null
+	
+	sSearchNativeLng=CheckString(Request.Form("nativelng"))
+	sSearchOtherLng=CheckString(Request.Form("otherlng"))
+	sSearchSeniority=CheckString(Request.Form("seniority"))
+
+	sSearchSectors=CheckString(Request.Form("mmb_sct_hid"))
+	sSearchSectors=Replace(sSearchSectors,",0","")
+	If Len(sSearchSectors)>2 Then sSearchSectors=Right(sSearchSectors, Len(sSearchSectors)-2)
+	If sSearchSectors="0" Then
+		sSearchSectors=""
+	End If
+	If sSearchSectors>"" Then
+		arrSearchSectors=Split(sSearchSectors,",")
+	End If
+	If Request.Form("srch_msectors")>"" Then
+		sSearchMainSectors=CheckString(Request.Form("srch_msectors"))
+	Else
+		sSearchMainSectors=CheckString(Request.QueryString("srch_msectors"))
+	End If
+	If sSearchMainSectors="0" Then
+		sSearchMainSectors=""
+		sSearchFullText=sSearchFullText & "all sectors AND "
+	End If
+	If sSearchMainSectors>"" Then
+		arrSearchMainSectors=Split(sSearchMainSectors,",")
+	End If
+
+
+	sSearchCountries=CheckString(Request.Form("mmb_cou_hid"))
+	sSearchCountries=Replace(sSearchCountries,",0","")
+	If Len(sSearchCountries)>2 Then sSearchCountries=Right(sSearchCountries, Len(sSearchCountries)-2)
+	If sSearchCountries="0" Then
+		sSearchCountries=""
+	End If
+	If sSearchCountries>"" Then
+		arrSearchCountries=Split(sSearchCountries,",")
+	End If
+	
+	If Request.Form("srch_regions")>"" Then
+		sSearchRegions=CheckString(Request.Form("srch_regions"))
+	Else
+		sSearchRegions=CheckString(Request.QueryString("srch_regions"))
+	End If
+	If sSearchRegions="0" Then
+		sSearchRegions=""
+		sSearchFullText=sSearchFullText & "all regions AND "
+	End If
+	If sSearchRegions=>"" Then
+		arrSearchRegions=Split(sSearchRegions,",")
+	End If
+
+
+	sSearchDonors=CheckString(Request.Form("mmb_don_hid"))
+	sSearchDonors=Replace(sSearchDonors,",0","")
+	If Len(sSearchDonors)>2 Then sSearchDonors=Right(sSearchDonors, Len(sSearchDonors)-2)
+	If sSearchDonors="0" Then
+		sSearchDonors=""
+	End If
+	If sSearchDonors>"" Then
+		arrSearchDonors=Split(sSearchDonors,",")
+	End If
+
+
+	If (sSearchSectors>"0") Then
+		For i=1 To UBound(arrSearchSectors)
+			For j=0 To aExT
+			If aExTCode(j)=CInt(arrSearchSectors(i)) Then
+			sSearchFullText=sSearchFullText & aExTInfo(j) & ", "
+			End If
+			Next
+		Next
+               	If Len(sSearchFullText)>2 Then sSearchFullText=Left(sSearchFullText,Len(sSearchFullText)-2) & " AND "
+	End If
+	If (sSearchMainSectors>"") Then
+		For i=0 To UBound(arrSearchMainSectors)
+			For j=0 To aExF
+			If aExFCode(j)=CInt(arrSearchMainSectors(i)) Then
+			sSearchFullText=sSearchFullText & aExFInfo(j) & ", "
+			End If
+			Next
+		Next
+               	If Len(sSearchFullText)>2 Then sSearchFullText=Left(sSearchFullText,Len(sSearchFullText)-2) & " AND "
+	End If
+
+	If (sSearchCountries>"0" And sSearchCountries>"") Then
+		For i=1 To UBound(arrSearchCountries)
+			For j=0 To aNt
+			If aNtCode(j)=CLng(arrSearchCountries(i)) Then
+			sSearchFullText=sSearchFullText & aNtInfo(j) & ", "
+			End If
+			Next
+		Next
+               	If Len(sSearchFullText)>2 Then sSearchFullText=Left(sSearchFullText,Len(sSearchFullText)-2) & " AND "
+	End If
+	If (sSearchRegions>"") Then
+		For i=1 To Request.Form("srch_regions").Count
+			For j=0 To aGZ
+			If aGZnCode(j)=CInt(Request.Form("srch_regions")(i)) Then
+			sSearchFullText=sSearchFullText & aGZnInfo(j) & ", "
+			End If
+			Next
+		Next
+               	If Len(sSearchFullText)>2 Then sSearchFullText=Left(sSearchFullText,Len(sSearchFullText)-2) & " AND "
+	End If
+
+	If (sSearchDonors>"0") Then
+		For i=1 To UBound(arrSearchDonors)
+			For j=0 To aOrg
+			If aOrgCode(j)=CLng(arrSearchDonors(i)) Then
+			sSearchFullText=sSearchFullText & aOrgInfo(j) & ", "
+			End If
+			Next
+		Next
+               	If Len(sSearchFullText)>2 Then sSearchFullText=Left(sSearchFullText,Len(sSearchFullText)-2) & " AND "
+	End If
+
+	If Len(sSearchFullText)>5 Then
+		sSearchFullText="<i>" & Left(sSearchFullText,Len(sSearchFullText)-5) & "</i>"
+	ElseIf sSearchFullText="" Then
+		sSearchFullText=" your search query"
+	End If
+
+	Dim sSearchDatabases
+	If Len(Request.Form("database"))>0 Then
+		sSearchDatabases = CheckString(Request.Form("database"))
+		If InStr(sSearchDatabases, "all")>0 Then sSearchDatabases=""
+	End If
+	
+	'objTempRs=GetDataOutParamsSP("usp_MmbExpSearchFirstSelect", Array( _
+	objTempRs=GetDataOutParamsSP("usp_Ica_MemberExpertSearchFirstSelect", Array( _
+		Array(, adVarChar, 500, sSearchDatabases), _
+		Array(, adInteger, , iMemberID), _
+		Array(, adVarChar, 150, sSearchExperts), _
+		Array(, adVarWChar, 150, sSearchFirstname), _
+		Array(, adVarWChar, 150, sSearchSurname), _
+		Array(, adVarWChar, 1000, sSearchKeywords), _
+		Array(, adVarChar, 1400, sSearchNationality), _
+		Array(, adVarChar, 350, sSearchEduSubject), _
+		Array(, adVarChar, 700, sSearchNativeLng), _
+		Array(, adVarChar, 700, sSearchOtherLng), _
+		Array(, adVarChar, 50, sSearchSeniority), _
+		Array(, adVarChar, 1000, sSearchCountries), _
+		Array(, adVarChar, 150, sSearchRegions), _
+		Array(, adVarChar, 1600, sSearchSectors), _
+		Array(, adVarChar, 150, sSearchMainSectors), _
+		Array(, adVarChar, 200, sSearchDonors), _
+		Array(, adVarChar, 10, sSearchDB), _
+		Array(, adInteger, , sSearchCurrentlyIn), _
+		Array(, adInteger, , iSearchPastYears), _
+		Array(, adInteger, , iSearchPastProjects), _
+		Array(, adTinyInt, , bShowIbfCVs), _
+		Array(, adTinyInt, , bShowAssortisCVs), _
+		Array(, adTinyInt, , 0), _
+		Array(, adTinyInt, , 0), _
+		Array(, adTinyInt, , bSaveSearchLog)), _
+		Array(Array(, adInteger)))
+
+	iSearchQueryID=objTempRs(0)
+
+	' To avoid a page with 'Page has Expired' message
+	sTempParams=sParams
+	sTempParams=ReplaceUrlParams(sTempParams, "qid=" & iSearchQueryID) 
+	sTempParams=ReplaceUrlParams(sTempParams, "page=1")
+	sTempParams=ReplaceUrlParams(sTempParams, "txt=" & sSearchKeywordsHighlight)
+
+	Response.Clear
+	Response.Redirect sScriptFileName & sTempParams
+
+Else
+	Response.Flush
+
+	iProjectID=CheckIntegerAndZero(Request.QueryString("idproject"))
+	sParams=ReplaceUrlParams(sParams, "idproject=" & iProjectID)
+
+	sSearchAction=Request.QueryString("act")
+	iSearchQueryID=Request.QueryString("qid")
+	sSearchKeywordsAdd=Request.QueryString("srch_queryadd")
+	sSearchOrderBy=Request.QueryString("srch_orderby")
+
+	Set objTempRs=GetDataRecordsetSP("usp_Ica_MemberExpertSearchRepeatSelect", Array( _
+		Array(, adInteger, , iMemberID), _
+		Array(, adInteger, , iSearchQueryID), _
+		Array(, adVarWChar, 255, ReplaceIfEmpty(CreateSearchString(sSearchKeywordsAdd, "all of the words from"),Null)), _
+		Array(, adVarChar, 50, ReplaceIfEmpty(sSearchOrderBy,Null))))
+	sSearchFullText=Request.Form("srch_fullquery")
+
+End If
+
+If Request.Form("ExpertIds")<>"" Then
+	sExpertIds=Request.Form("ExpertIds")
+ElseIf Request.Cookies("ExpertIds")>"" Then
+	sExpertIds=Request.Cookies("ExpertIds")
+ElseIf sSearchExperts>"" Then
+	sExpertIds=sSearchExperts
+Else
+	sExpertIds="0"
+End If
+
+' Clean up the list from already downloaded experts
+	objTempRs2=GetDataOutParamsSP("usp_MmbExpDownloadedCleanup", Array( _
+		Array(, adInteger, , iMemberID), _
+		Array(, adVarChar, 4000, sExpertIds)), _
+		Array(Array(, adVarChar, 4000)))
+	sExpertIds=objTempRs2(0)
+
+arrExpertIds=Split(sExpertIds,",")
+
+If sExpertIds>"0" Then
+	sExpertIds=Replace(Trim(sExpertIds), " ,", ",")
+	sExpertIds=Replace(sExpertIds, ",", " ,") & " "
+End If
+
+sSearchKeywordsHighlight=Request.QueryString("txt")
+
+If Not InStr(sParams, "qid=")>1 Then sParams=AddUrlParams(sParams, "qid=" & iSearchQueryID)
+%>
+<!--#include virtual="/_template/html.header.start.asp"-->
+
+<script language="JavaScript">
+function CheckExpertIds(expert_id) {
+var selected_expert_ids='';
+var active_expert_element='id_' + expert_id;
+var active_expert_string=',' + (expert_id || 0);
+	if (document.forms[0].ExpertIds) {
+		selected_expert_ids=document.forms[0].ExpertIds.value;
+
+		if (document.forms[0][active_expert_element] && document.forms[0][active_expert_element].checked) {
+		
+			if (!VerifyCvsDownloadedToday(<% =iStopLimitDownloadedToday %>)) {
+				if (document.forms[0][active_expert_element] && document.forms[0][active_expert_element].checked) {
+					document.forms[0][active_expert_element].checked=false;
+				}
+			} else {
+				selected_expert_ids += active_expert_string;
+			}
+
+		} else {
+			selected_expert_ids = selected_expert_ids.replace(active_expert_string, '');
+		}
+		document.forms[0].ExpertIds.value=selected_expert_ids;
+		document.cookie = 'ExpertIds=' + selected_expert_ids;
+	}
+}	
+
+function VerifyCvsDownloadedToday(limit) {
+var selected_expert_ids='';
+	if (document.forms[0].ExpertIds) {
+		selected_expert_ids=document.forms[0].ExpertIds.value;
+
+		if ((<% =ReplaceIfEmpty(iNumberCVsDownloadedToday, 0) %> >= limit) || (<% =ReplaceIfEmpty(iNumberCVsDownloadedToday, 0) %> + selected_expert_ids.split(',').length > limit)) {
+			alert('You cannot download more CVs!\nPlease contact us for further information regarding this case.');
+			return false;
+		}
+	}
+	return true;
+}
+
+function DownloadCV(cv_num, euid, lng, db) {
+	var f = document.forms[0];
+	var obj_cv = f["cvformat" + cv_num];
+	var frm = obj_cv.options[obj_cv.selectedIndex].value;
+	
+	var url = "../view/cv_view" + frm + ".asp<% =ReplaceUrlParams(ReplaceUrlParams(sParams, "uid"), "t=1") %>&uid=" + euid;
+	window.location.href=url;
+}
+
+function Register(regtype) {
+	if (!VerifyCvsDownloadedToday(<% =iStopLimitDownloadedToday %>+1)) {
+		return;
+	}
+	if (document.forms[0].ExpertIds.value.replace(' /g', '').length<=1) {
+		alert("Please select at least one expert");
+		return;
+	} 
+	document.forms[0].action="exp_register.asp?act=selected"; 
+	document.forms[0].submit(); 
+} 
+// -->
+</script>
+</head>
+<body>
+<div id="holder">
+	<!-- header -->
+	<!--#include file="../../_template/page.header.asp"-->
+
+	<!-- content -->
+	<div id="content" class="workscreen">
+		<h2 class="service_title">Search results</span></h2>
+
+<% If objTempRs.Eof Then %>
+<!-- [i] No Results -->
+	<br />
+	<% ShowMessageStart "info", 620 %>
+	There is no expert matching your search query.<br />
+	Please revise your query and try again. If you have questions please contact us at <a href="mailto:info@assortis.com">info@assortis.com</a>.
+	<% ShowMessageEnd %>
+	<br /><div align="center"><a href="exp_search.asp"><img src="/image/bte_searchagain.gif" name="Search again" height=18 width=105 alt="Search again" border=0></a></div>
+
+<% Else 
+	If IsNull(objTempRs(0)) Then
+		Response.Write("<br /><br />")
+		ShowMessageStart "info", 500 %>
+			The searh query is expired. Please revise your query and try again. <br />If you have questions please contact us at <a href="mailto:info@assortis.com">info@assortis.com</a>.
+		<% ShowMessageEnd
+		Response.End
+	End If
+	iNumberCVsTotalInResult=objTempRs.RecordCount %>
+
+   <!-- [i] Results overview -->
+	<% ShowMessageStart "info", 650 %>
+	<% If iNumberCVsTotalInResult=1 Then %>There is 1 expert<% Else %>There are <%=iNumberCVsTotalInResult%> experts<% End If %> matching your search query.
+	<div align="center"><a href="exp_search.asp<% =sParams %>"><img src="<% =sHomePath %>image/bte_searchagain.gif"  name="Search again" height=18 width=105 alt="Search again" border=0 hspace=10 vspace=3></a></div>
+	</ul>
+	<% ShowMessageEnd %>
+	</p>
+
+	<%
+	objTempRs.PageSize=10
+	iTotalRecords=objTempRs.RecordCount
+	iTotalPages=objTempRs.PageCount
+
+	ShowNavigationPages iCurrentPage, iTotalPages, sParams
+%>
+
+<form name="exp_list_form" id="exp_list_form" method="post">
+<input type="hidden" name="qid" value="<%=iSearchQueryID%>"><input type="hidden" name="srch_fullquery" value='<%=sSearchFullText%>'>
+
+<% sExpertIds=ReplaceIfEmpty(sExpertIds, "0") %>
+<input type=hidden name="ExpertIds" value="<%=sExpertIds%>">
+
+<% ShowIcaExpertsBlock 1, iCurrentPage %>
+
+</form>
+
+<% ShowNavigationPages iCurrentPage, iTotalPages, sParams %>
+<% End If 
+objTempRs.Close %>
+
+	</div>
+	<div id="rightspace">
+   <!-- Feature boxes -->
+
+	<form name="search" method="get" action="<%=sScriptFileName%>">
+	<input type="hidden" name="qid" value="<%=iSearchQueryID%>">
+	<% ShowFeatureBoxHeader "Refine&nbsp;your&nbsp;search" %>
+	<div class="content">
+	<p class="sml" align="center">Order these results by</p>
+	<div align="center"><select style="font-face: Arial; font-size:8.5pt;" name="srch_orderby" size=1>
+	<option value="expRank"<% If sSearchOrderBy="expRank" Then %> selected<% End If %>>Relevance &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</option>
+	<option value="expProfession"<% If sSearchOrderBy="expProfession" Then %> selected<% End If %>>Profession</option>
+	<option value="expSeniority"<% If sSearchOrderBy="expSeniority" Then %> selected<% End If %>>Seniority</option>
+	</select></div>
+	<img src="../../image/x.gif" width=1 height=2><br />
+	<div align="center"><input type="image" src="/image/bte_order.gif" alt="Search for experts" height=18 vspace=0 border=0></a></div>
+	<% ShowFeatureBoxDelimiter %>
+	<p class="sml" align="center">Search within results</p>
+	<div align="center"><input type="text" style="font-face: Arial; font-size:8.5pt;" name="srch_queryadd" size=16 value="<%=sSearchKeywordsAdd%>"></div>
+	<img src="../../image/x.gif" width=1 height=2><br />
+	<div align="center"><input type="image" src="/image/bte_search.gif" alt="Search for experts" height=18 vspace=0 border=0></a></div>
+	</div>
+	<% ShowFeatureBoxFooter %>
+	</form>
+
+	<% If sUserIpAddress="158.29.157.32" Or sUserIpAddress="158.29.157.41" Then %>
+	<% If Len(sElinkUserCode)>0 Then %>
+	<% ShowFeatureBoxHeader "Advanced&nbsp;options" %>
+	<div class="content">
+	<div align="center"><p class="sml"><span id="expert_query_selection_count">No</span> expert(s) selected <span id="expert_query_selection_remove">(<a href="#" id="a_expert_query_selection_remove">X</a>)</span></p></div>
+	<div align="center"><p class="sml"><a href="javascript:SendEmailExperts();">Send emails to experts</a></p></div>
+	<div align="center"><p class="sml"><a href="javascript:UploadExpertsMpis();">Upload experts on MPIS</a></p></div>
+	<span id="expert_query_selection_list" style="display: none;"><% =ShowMemberExpertQuery(iMemberID, 0, iSearchQueryID) %></span>
+	</div>
+	<% ShowFeatureBoxFooter %>
+	<% End If %>
+	<% End If %>
+		
+	</div>
+</div>
+	<!-- footer -->
+	<!--#include file="../../_template/page.footer.asp"-->
+<% CloseDBConnection %>
+</body>
+<!--#include file="../../_template/html.footer.asp"-->
+

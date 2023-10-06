@@ -1,0 +1,95 @@
+html, body, ul, ol, li, dl, dt, dd, p, h1, h2, h3, h4, h5, h6, blockquote, form, fieldset, legend, table, td, th, div {
+	margin: 0;
+	padding: 0;
+}
+
+div:after, form:after, ul:after, ol:after, dl:after, dt:after, dd:after, h1:after, h2:after, h3:after, h4:after, p:after, .columns:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+html, body {
+	font-size: 100.01%;
+	height: 99%;
+}
+
+body {
+	background: #fff;
+	color: #036;
+	font-size: 0.86em;
+	font-family: Arial;
+}
+
+input, textarea, select {
+	font-size: 100%;
+}
+
+input[type=checkbox], input[type=radio] {
+	vertical-align: bottom;
+}
+
+img {border: none;}
+
+img.left {
+	float: left;
+}
+
+img.right {
+	float: right;
+}
+
+table { 
+	border-spacing: 0; 
+	/* because of a bug in FF3.5 when border-collapse: collapse */
+}
+
+p { 
+	margin-bottom: 1.5em;
+}
+
+
+a.list {
+	color: #b00;
+	border-color: #a00;
+	text-decoration: underline;
+}
+a.list:visited {
+	color: #a90200;
+}
+a.list:hover {
+	color: #74001b;
+	border-color: #74001b;
+}
+
+
+h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
+h1 {
+	font-size: 180%;
+	margin: 0 0 0.8em;
+	line-height: 1.2;
+}
+
+h2 {
+	font-size: 119%;
+	margin: 0 0 1em;
+}
+
+h3 {
+	font-size: 119%;
+	margin-bottom: 0.5em;
+}
+
+h4 {
+	font-size: 110%;
+	margin: 0 0 0.5em;
+	font-weight: bold;
+}
+
+h5 {
+	font-size: 100%;
+	margin: 0 0 1.2em;
+}

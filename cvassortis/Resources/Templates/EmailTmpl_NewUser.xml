@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<emailTemplate>
+	<sender>info@icaworld.net</sender>
+	<recipients></recipients>
+	<subject>Account created for ICANET</subject>
+	<body>
+		<style type="text/css">
+			* { font: 10pt Arial, Sans-Serif; color: #000000; }
+			a { color: #FF3333; }
+			a:hover { color: #FF0000; }
+		</style>
+		<p>Dear [#FirstName#] [#LastName#],</p>
+
+		<p>A new ICANET user account was created for you with the following credentials:</p>
+		
+		<p>Username: [#UserName#]</p>
+
+		<p>Password: [#Password#]</p>
+		
+		<p>URL for login: <a href="http://[#SiteDomain#]/Intranet/LogIn">http://[#SiteDomain#]/Intranet/LogIn</a></p><br/>
+		
+		<p>Account details:<br/><br/>
+
+			First name: [#FirstName#]<br/>
+			Last name: [#LastName#]<br/>
+			Email: [#Email#]<br/>
+			Company: [#CompanyName#]<br/>
+		</p>
+		<br />
+		<p>Your username and password is strictly personal and must never be disclosed to a third party.</p>
+
+		<br /><br />
+
+		<p>Kind regards,</p>
+
+		<p>ICA Team</p>
+	</body>
+</emailTemplate>

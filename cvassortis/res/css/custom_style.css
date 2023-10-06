@@ -1,0 +1,102 @@
+.cgu_section
+{
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+.no_right_box>.top_title_h2
+{
+    width: 100%!important;
+}
+
+
+.generic_block ul li {
+    background-image: url(../images/styles/red_puce.png);
+    background-repeat: no-repeat;
+    background-position-y: 3px;
+    padding-left: 30px;
+    list-style: none;
+    padding-top: 4px;
+    margin-bottom: 10px;
+    min-height: 21px;
+}
+.generic_block ul .oneline
+{
+    background-position-y: 5px;
+    margin-bottom: 10px;
+}
+
+.generic_block table.calendar {
+	border: 1px solid #999;
+	border-top: 0; 
+	border-right: 0; 
+	width: 100%;
+}
+.generic_block table.calendar th {
+	border: 1px solid #999;
+	border-bottom: 0; 
+	border-left: 0; 
+}
+.generic_block table.calendar td {
+	border: 1px solid #999;
+	border-bottom: 0; 
+	border-left: 0; 
+}
+.generic_block table.calendar td a { color: #557189 !important; }
+.generic_block table.calendar td p a { color: #d55642 !important; }
+
+
+.result_table_titles a { color: #4a4b4b; text-decoration: underline !important; }
+ 
+.result_table_wrapper a.blue { color: #557189 !important; }
+
+.innerShList {top: 0px !important; margin-bottom: 0px !important; }
+.innerShList tr, tr.innerLst { border-top: 0px !important; }
+.innerShList td, tr.innerLst td { padding: 5px 0px 5px 5px !important; }
+.innerShList td.first, tr.innerLst td.first { padding: 15px 0px 5px 5px !important; }
+.innerShList td a, tr.innerLst td a { display: inline !important; }
+tr.innerLst td.padLft30 { padding-left: 30px !important; }
+.noTblRowHover tr:hover { background: Transparent !important; }
+
+select.expres_cvformat
+{
+	float:right;
+	height: auto;
+	padding: 3px; 
+	font-size: 0.8em;
+	background-color: #FFF;
+	border: solid 1px #D8D8D8;
+	margin-top: -3px;
+	margin-right: 18px;
+	width: auto;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	/*    behavior: url(/res/pie/PIE.asp);*/
+}
+
+.grid.blue table.cv {
+	width: 98%;
+	border: 1px solid #002e64;
+	border-top: 0; 
+	border-right: 0; 
+}
+.grid.blue table.cv  td {
+	border: 1px solid #002e64;
+	border-bottom: 0; 
+	border-left: 0; 
+	padding: 2px 5px;
+}
+
+.dashboard_box div.text_align_center
+{
+    text-align: center!important;
+    border: none;
+}
+.dashboard_box div.text_align_center .grey_button
+{
+   margin: 0!important; 
+   display: inline-block!important;
+}
+.clear {clear: both;}
+.error {display: block; color: #FF0000; padding: 10px; text-align: center;}
+.successSent {display: block; color: green; padding: 10px; text-align: center;}

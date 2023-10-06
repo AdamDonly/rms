@@ -1,0 +1,96 @@
+/*
+File: reset.css - "clear (erase)" style sheet for ICA's site
+Created: 17.04.2001
+Revised: 07.05.2011
+Author: Adianam DTH
+*/
+a, abbr, acronym, address, area, big, blockquote, body, br, button,
+caption, cite, code, dd, del, dfn, div, dl, dt, fieldset, form, 
+h1, h2, h3, h4, h5, h6, hr, html, i, label, legend, 
+map, object, optgroup, option, p, pre, q, span, 
+sub, sup, table, tbody, td, tfoot, th, thead, tr {
+  margin:0;padding:0;
+  font-size:100%;font-weight:inherit;font-style:inherit;
+  font-family:inherit;vertical-align:baseline;
+  border:0;border-collapse:collapse;outline:0;}
+input, select, textarea {
+  margin:0;
+  font-size:100%;font-weight:inherit;font-style:inherit;
+  font-family:inherit;vertical-align:baseline;
+  border:0;border-collapse:collapse;outline:0;}
+
+/* background:transparent; - error in MSIE 7 : 
+   "change table-row color with onMouseOver... */
+
+blockquote, q {quotes:none;}
+
+table, table td {border-spacing:0;vertical-align:middle;}
+hr, .none {display:none;margin:0;padding:0;}
+img {border:none;background:transparent;}
+.clr {clear:both;font-size:1px;height:1px;line-height:1px;}
+
+/* ======================= For persons using JAWS or other software */
+.off_jws{position:absolute;overflow:hidden;left:-1500em;width:1000em;}
+
+/* ---------------------------------------------- width & height ---*/
+.w50 {width: 50px;}
+.w60 {width: 60px;}
+.w70 {width: 70px;}
+.w80 {width: 80px;}
+.w90 {width: 90px;}
+
+.w100{width:100px;}
+.w110{width:110px;}
+.w120{width:120px;}
+.w130{width:130px;}
+.w140{width:140px;}
+.w150{width:150px;}
+
+.w200{width:200px;}
+.w240{width:240px;}
+.w250{width:250px;}
+
+.w300{width:300px;}
+.w320{width:320px;}
+.w330{width:330px;}
+.w340{width:340px;}
+.w350{width:350px;}
+.w380{width:380px;}
+
+.w400{width:400px;}
+.w450{width:450px;}
+
+.w500{width:500px;}
+.w560{width:560px;}
+.w590{width:590px;}
+.w550{width:550px;}
+
+.w600{width:600px;}
+.w630{width:630px;}
+.w650{width:650px;}
+.w660{width:660px;}
+
+.w700{width:700px;}
+.w750{width:750px;}
+.w800{width:800px;}
+
+.w80perc{width:80%;}
+.w50perc{width:50%;}
+
+.h0  {height:  0px;}
+.h10 {height: 10px;}
+.h20 {height: 20px;}
+.h30 {height: 30px;}
+.h40 {height: 40px;}
+.h50 {height: 50px;}
+.h100{height:100px;}
+.h200{height:200px;}
+.h300{height:300px;}
+.h400{height:400px;}
+
+/********************************************************************/
+.brd  {border:1px red solid;}
+.brd1 {border:1px blue solid;}
+.brd2 {border:1px green solid;}
+.brd3 {border:1px red dashed;}
+.brd4 {border:1px yellow solid;}

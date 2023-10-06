@@ -1,0 +1,26 @@
+<%@ LANGUAGE="VBSCRIPT" %>
+<% Option Explicit %>
+
+<!--#include file="../../dbc.asp"-->
+<!--#include file="../../fnc.asp"-->
+<!--#include file="../../_forms/frmInterface.asp"-->
+<!--#include file="../../../_common/_data/en/lib_seureca.asp"-->
+<!--#include file="../../_forms/frmScrollBoxNew.asp"-->
+<!--#include file="../../../_common/register3_seureca.asp"-->
+
+<%
+Sub BeforeClientValidationCvRegistrationStep3
+End Sub
+
+
+Sub AfterClientValidationCvRegistrationStep3
+%>
+/*
+	if (!checkTextFieldValue(f.exp_ref_firstname, "", "Please specify reference (contact person) first name.", 1)) { return }
+	if (!checkTextFieldValue(f.exp_ref_lastname, "", "Please specify reference (contact person) last name.", 1)) { return }
+	if (!checkTextFieldValue(f.exp_ref_phone, "", "Please specify reference (contact person) phone.", 1)) { return }
+	if (!checkTextFieldValue(f.exp_ref_email, "", "Please specify reference (contact person) email.", 1)) { return }
+*/
+<%
+End Sub
+%>
